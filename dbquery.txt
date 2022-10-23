@@ -1,0 +1,35 @@
+CREATE TABLE ALBUM (
+    album_id INT NOT NULL,
+    judul CHAR(64) NOT NULL,
+    penyanyi CHAR(128) NOT NULL,
+    total_duration INT NOT NULL,
+    image_path CHAR(255) NOT NULL,
+    tanggal_terbit DATE NOT NULL,
+    genre CHAR(64),
+    PRIMARY KEY(album_id)
+);
+
+CREATE TABLE SONG (
+    song_id INT NOT NULL,
+    judul CHAR(64) NOT NULL,
+    penyanyi CHAR(128),
+    tanggal_terbit DATE NOT NULL,
+    genre CHAR(64),
+    duration INT NOT NULL,
+    audio_path CHAR(255) NOT NULL,
+    image_path CHAR(255),
+    album_id INT,
+    PRIMARY KEY(song_id),
+    CONSTRAINT fk_songalbum
+    FOREIGN KEY(album_id)
+    REFERENCES ALBUM(album_id)
+);
+
+CREATE TABLE USERS (
+    user_id INT NOT NULL,
+    email CHAR(255) NOT NULL,
+    password CHAR(255) NOT NULL,
+    username CHAR(255) NOT NULL,
+    isAdmin BOOLEAN NOT NULL,
+    PRIMARY KEY(user_id)
+);

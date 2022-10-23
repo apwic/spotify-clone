@@ -1,17 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,600&display=swap");
 
 * {
-    font-family: 'Montserrat';
+  font-family: "Montserrat";
+  background-color: var(--black);
 }
 
 :root {
-    --dark_green: #1DB854;
-    --light_green: #1ED760;
-    --black: #191414;
-    
-    --extra_light: 200;
-    --light: 300;
-    --regular: 400;
-    --bold: 600;
-    --extra_bold: 700;
+  --dark_green: #1db854;
+  --light_green: #1ed760;
+  --black: #191414;
+  --white: #ffffff;
+
+  --extra_light: 200;
+  --light: 300;
+  --regular: 400;
+  --bold: 600;
+  --extra_bold: 700;
 }
