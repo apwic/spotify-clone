@@ -27,6 +27,13 @@ const getSongs = (album_id) => {
   });
 }
 
+const getAllSongs = (page) => {
+  getAPI(`./api/song/getallsongs.php?page=${page}`, (data) => {
+    const jsonData = JSON.parse(data);
+    console.log(jsonData);
+  });
+}
+
 const searchSong = (query) => {
   const genre = "RnB";
   const order = "asc";
