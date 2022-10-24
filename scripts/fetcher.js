@@ -5,7 +5,6 @@ const getAPI = (endpoint, callback, data) => {
     if (this.readyState !== 4) return;
 
     if (this.status === 200) {
-      console.log(this.responseText);
       callback(this.responseText);
     } else {
       // TODO: handling different types of error

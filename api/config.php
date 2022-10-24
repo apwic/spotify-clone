@@ -7,6 +7,9 @@ define('USER', 'root');
 define('PASS', '');
 define('DBNAME', 'sepotipayi');
 
+//SET CONSTANT
+define('PAGE_SIZE', 10);
+
 $con = new mysqli(HOST, USER, PASS, DBNAME);
 
 if ($con->connect_errno) {

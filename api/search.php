@@ -1,6 +1,7 @@
 <?php
 
 require_once "./config.php";
+$page_size = constant('PAGE_SIZE');
 
 # Check for search params
 if(isset($_GET['q']) && $_GET['q'] != "") {
@@ -9,7 +10,7 @@ if(isset($_GET['q']) && $_GET['q'] != "") {
                     FROM `song` 
                     WHERE LOWER(`judul`) LIKE LOWER(?) OR LOWER(`penyanyi`) LIKE ? OR YEAR(`tanggal_terbit`) = ?";
 
-  # Check if there's a filterkp c
+  # Check if there's a filter
   if(isset($_GET['filter'])){
     $prepare_query .= " AND `genre` = ?";
 
@@ -36,9 +37,20 @@ if(isset($_GET['q']) && $_GET['q'] != "") {
   }
 
   $query_result = $query->get_result();
-
   $payload = [];
-  while($row = $query_result->fetch_assoc()){
+  $count_rows = $query_result->num_rows;
+  $page = $_GET['page'];
+  $page_start = ($page - 1) * $page_size;
+
+  if ($page_start + $page_size < $count_rows) {
+    $page_end = $page_start + $page_size;
+  } else {
+    $page_end = $count_rows;
+  }
+
+  // FETCH BY PAGE
+  for($i = $page_start;$i < $page_end;$i++) {
+    $row = $query_result->fetch_assoc();
     array_push($payload, $row);
   }
 
