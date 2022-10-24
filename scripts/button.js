@@ -1,10 +1,7 @@
 
-const clickable = () => {
-  console.log('eek');
-  getAPI("./api/config.php", click);
-  alert("Callback successful!");
-};
-
-function click(){
-  console.log('eek');
+const clickable = (temp) => {
+  getAPI(`./api/album/getalbum.php?id=${temp}`, (data) => {
+    const jsonData = JSON.parse(data);
+    console.log(jsonData);
+  } );
 }

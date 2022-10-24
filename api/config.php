@@ -13,8 +13,4 @@ if ($con->connect_errno) {
   $result = ["status" => "error", "description" => "cannot connect to database"];
   http_response_code(401);
   exit(json_encode($result));
-} else {
-  $result = ["status" => "success", "description" => "connect to database"];
-  http_response_code(200);
-  exit(json_encode($result));
 }
