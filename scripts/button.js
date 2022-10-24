@@ -1,7 +1,7 @@
 
 const clickable = () => {
   console.log('eek');
-  getAPI("config.php", click);
+  getAPI("./api/config.php", click);
   alert("Callback successful!");
 };
 
