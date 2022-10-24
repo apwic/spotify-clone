@@ -1,0 +1,31 @@
+#player {
+  width: 100%;
+  height: 7vh;
+  bottom: 0;
+  left: 0;
+  background-color: var(--black);
+  border-top: 1px solid rgba(87, 87, 87, 0.338);
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5%;
+  color: white;
+}
+
+#player > img {
+  margin-right: 1%;
+}
+
+.song-detail {
+  height: 50%;
+}
+
+.song-title {
+  font-weight: 500;
+  font-size: clamp(0.8rem, 0.9vw, 1rem);
+}
+
+.song-artist {
+  font-size: clamp(0.6rem, 0.75vw, 0.8rem);
+}

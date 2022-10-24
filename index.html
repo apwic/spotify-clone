@@ -3,19 +3,28 @@
 
 <head>
     <meta charset="UTF-8" />
+    <meta name="google" content="notranslate">
     <title>Sepotipayi</title>
     <link rel="icon" type="image/x-icon" href="./favicon.ico" />
     <link rel="stylesheet" href="styles/global.css" />
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/player.css" />
 </head>
 
 <body>
-  <div>
-    <button onclick="clickable(1)">RAWR</button>
-    <!-- <div class="test">ANCA KENA SANDWICH AZKA</div> -->
+  <div class="container">
+    <div id="navbar">
+    </div>
+    <div class="page-container">
+      <button onclick="clickable(1)">RAWR</button>
+    </div>
+    <div id="player">
+    </div>
   </div>
-  <script src="./scripts/fetcher.js"> </script>
-  <script src="./scripts/button.js"> </script>
+  <script src="navbar.js"></script>
+  <script src="player.js"></script>
+  <script src="fetcher.js"></script>
+  <script src="button.js"></script>
 </body>
 
 

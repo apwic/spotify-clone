@@ -2,7 +2,9 @@
 
 * {
   font-family: "Montserrat";
-  background-color: var(--black);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
@@ -10,10 +12,29 @@
   --light_green: #1ed760;
   --black: #191414;
   --white: #ffffff;
-
+  
   --extra_light: 200;
   --light: 300;
   --regular: 400;
   --bold: 600;
   --extra_bold: 700;
 }
+
+body {
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.page-container {
+  width: 82%;
+  height: 100%;
+  background-color: var(--black);
+}
+
