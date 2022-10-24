@@ -47,17 +47,6 @@ const navbarLayout = (role) => {
               dandut terbaik
             </div>
           </div>
-          <div class="section-song">
-            <img src="./assets/image/liked-songs.png"/>
-            <div>
-              <div class="song-title">
-                Epi
-              </div>
-              <div class="song-artist">
-                Epi gemoi
-              </div>
-            </div>
-          </div>
         </div>
       `;
 };

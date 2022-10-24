@@ -17,14 +17,18 @@
     </div>
     <div class="page-container">
       <button onclick="clickable(1)">RAWR</button>
+      <form>
+        <input type="text" name="query"/>
+        <input type="button" onclick="searchSong(this.form.query.value)" value="search"/>
+      </form>
     </div>
     <div id="player">
     </div>
   </div>
-  <script src="navbar.js"></script>
-  <script src="player.js"></script>
-  <script src="fetcher.js"></script>
-  <script src="button.js"></script>
+  <script src="scripts/navbar.js"></script>
+  <script src="scripts/player.js"></script>
+  <script src="scripts/fetcher.js"></script>
+  <script src="scripts/button.js"></script>
 </body>
 
 
