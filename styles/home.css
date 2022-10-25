@@ -1,0 +1,27 @@
+.song-list-container {
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  flex-direction: column;
+}
+
+.song-list {
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.song-list > img {
+  margin-right: 5%;
+  height: 2.25vh;
+  width: 2.25vh;
+}
+
+label {
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin-right: 5%;
+}

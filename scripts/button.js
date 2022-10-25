@@ -1,9 +1,8 @@
-
 const getSong = (id) => {
   getAPI(`./api/song/getsong.php?id=${id}`, (data) => {
     const jsonData = JSON.parse(data);
     console.log(jsonData);
-  } );
+  });
 }
 
 const getAlbum = (id) => {

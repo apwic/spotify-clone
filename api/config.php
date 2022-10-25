@@ -10,7 +10,6 @@ define('PASS', '');
 define('DBNAME', 'sepotipayi');
 define('PAGE_SIZE', 10);
 
-// connect to database
 $con = new mysqli(HOST, USER, PASS, DBNAME);
 
 // this code to check response code for debugging

@@ -18,6 +18,10 @@ const navbarLayout = (role) => {
               <img src="./assets/image/menu-burger.png"/>
               <div>Album List</div>
             </div>
+            <div class="feature-group" onClick="goToTest()">
+              <img src="./assets/image/test.png"/>
+              <div>Test API</div>
+            </div>
             <br/>
         ${
           role === "admin"
@@ -53,12 +57,10 @@ const navbarLayout = (role) => {
 
 goToAddSong = () => {
   window.location.href = `${window.location.protocol}//${window.location.host}/addsong.html`;
-  alert("Nanti diisi ke add song");
 };
 
 goToAddAlbum = () => {
   window.location.href = `${window.location.protocol}//${window.location.host}/addalbum.html`;
-  alert("Nanti diisi ke add album");
 };
 
 goToSearch = () => {
@@ -66,9 +68,12 @@ goToSearch = () => {
 };
 
 const goToHome = () => {
-  window.location.href = `${window.location.protocol}//${window.location.host}/`;
-  alert("Nanti diisi pake fungsi home");
+  window.location.href = `${window.location.protocol}//${window.location.host}`;
 };
+
+const goToTest = () => {
+  window.location.href = `${window.location.protocol}//${window.location.host}/test.html`;
+}
 
 const goToAlbumList = () => {
   alert("Nanti diisi pake fungsi get album list");
