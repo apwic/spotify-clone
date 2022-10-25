@@ -52,12 +52,12 @@ const navbarLayout = (role) => {
 };
 
 goToAddSong = () => {
-  window.location = "/addsong.html";
+  window.location = `${window.location.href}addsong.html`;
   alert("Nanti diisi ke add song");
 };
 
 goToAddAlbum = () => {
-  window.location = "/addalbum.html";
+  window.location = `${window.location.href}addsong.html`;
   alert("Nanti diisi ke add album");
 };
 
@@ -75,6 +75,7 @@ const goToAlbumList = () => {
 };
 
 const logout = () => {
+  window.location = `${window.location.href}login.html`
   alert("Nanti diisi pake fungsi log out");
 };
 
