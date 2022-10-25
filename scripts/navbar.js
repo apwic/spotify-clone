@@ -52,12 +52,12 @@ const navbarLayout = (role) => {
 };
 
 goToAddSong = () => {
-  window.location = `${window.location.href}addsong.html`;
+  window.location.href = `${window.location.protocol}//${window.location.host}/addsong.html`;
   alert("Nanti diisi ke add song");
 };
 
 goToAddAlbum = () => {
-  window.location = `${window.location.href}addsong.html`;
+  window.location.href = `${window.location.protocol}//${window.location.host}/addalbum.html`;
   alert("Nanti diisi ke add album");
 };
 
@@ -66,7 +66,7 @@ goToSearch = () => {
 };
 
 const goToHome = () => {
-  window.location = "/";
+  window.location.href = `${window.location.protocol}//${window.location.host}/`;
   alert("Nanti diisi pake fungsi home");
 };
 
@@ -75,7 +75,7 @@ const goToAlbumList = () => {
 };
 
 const logout = () => {
-  window.location = `${window.location.href}login.html`
+  window.location.href = `${window.location.protocol}//${window.location.host}/login.html`;
   alert("Nanti diisi pake fungsi log out");
 };
 
