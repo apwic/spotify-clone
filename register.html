@@ -12,22 +12,23 @@
             <div id="title">Sepotipayi</div>
         </header>
 
-        <form>
+        <form onsubmit="registered(event)" enctype="multipart/form">
             <div class="form-style">Sign up for free to start listening</div>
             <div class="form-style">Enter your username</div>
             <input required class="form-style input-style" type="text" id="username" name="username" placeholder="Username" />
             <div class="form-style">What's your email?</div>
-            <input required class="form-style input-style" type="email" id="email" name="username" placeholder="Email" />
+            <input required class="form-style input-style" type="email" id="email" name="email" placeholder="Email" />
             <div class="form-style">Enter your password</div>
             <input required class="form-style input-style" type="password" id="password" name="password" placeholder="Password" />
             <div class="form-style">Confirm your password</div>
-            <input required class="form-style input-style" type="password" id="repassword" name="password" placeholder="Password" />
-            <button class="form-style button-style" type="submit">Register</button>
+            <input required class="form-style input-style" type="password" id="repassword" name="repassword" placeholder="Password" />
+            <input class="form-style button-style" type="submit">Register</input>
             <br />
-            <div class="form-style">Already have an account? <a href="login.html">Login for Sepotipayi</a></div>
+            <div class="form-style">Already have an account? <a href="login.html">Log In for Sepotipayi</a></div>
         </form>
-        <script></script>
-        <script></script>
-        <script></script>
+
+        <script src="scripts/authentication/handleCookie.js"></script>
+        <script src="scripts/fetcher.js"></script>
+        <script src="scripts/register.js"></script>
     </body>
 </html>
