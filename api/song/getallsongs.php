@@ -31,7 +31,7 @@ for($i = $page_start;$i < $page_end;$i++) {
 }
 
 if (!$payload) {
-  $result = ["status" => "error", "description" => "no songs with such id"];
+  $result = ["status" => "error", "description" => "no songs"];
   http_response_code(404);
   exit(json_encode($result));
 } else {

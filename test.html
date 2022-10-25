@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="styles/global.css" />
     <link rel="stylesheet" href="styles/navbar.css" />
     <link rel="stylesheet" href="styles/player.css" />
-    <link rel="stylesheet" href="styles/home.css" />
 </head>
 
 <body>
@@ -17,12 +16,16 @@
     <div id="navbar">
     </div>
     <div class="page-container">
-        <div class="page-title">
-          Sepotipayi
-        </div>
-        <div id="songs" class="song-list-container">
-        </div>
-      </div>
+      <button onclick="getSong(1)">1 lagu</button>
+      <button onclick="getSongs(1)">byk lagu</button>
+      <button onclick="getAllSongs(1)">smw lagu</button>
+      <button onclick="getAlbum(1)">1 album</button>
+      <button onclick="getAlbums(1)">byk album</button>
+      <button onclick="alert('RAWRRR XD')">RAWR</button>
+      <form>
+        <input type="text" name="query"/>
+        <input type="button" onclick="searchSong(this.form.query.value)" value="search"/>
+      </form>
     </div>
     <div id="player">
     </div>
@@ -32,7 +35,7 @@
   <script src="scripts/player.js"></script>
   <script src="scripts/fetcher.js"></script>
   <script src="scripts/button.js"></script>
-  <script src="scripts/home.js"></script>
 </body>
+
 
 </html>
