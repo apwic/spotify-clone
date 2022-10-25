@@ -52,10 +52,12 @@ const navbarLayout = (role) => {
 };
 
 goToAddSong = () => {
+  window.location = "/addsong.html";
   alert("Nanti diisi ke add song");
 };
 
 goToAddAlbum = () => {
+  window.location = "/addalbum.html";
   alert("Nanti diisi ke add album");
 };
 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="google" content="notranslate">
+    <title>Sepotipayi</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/player.css" />
+    <link rel="stylesheet" href="styles/addsong.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="navbar">
+    </div>
+    <div class="page-container">
+        <div class="page-title">
+          Add Song
+        </div>
+        <div class="song-detail">
+          <form action="upload.php" method="post" enctype="multipart/form-data">
+            <div class="song-detail-container">
+              <label for="file_lagu">Select Song to Add:</label>
+              <input type="file" name="file_lagu" id="file_lagu" accept=".mp3"/>
+            </div>
+            <div class="song-detail-container">
+              <label for="judul_lagu">Song Title</label>
+              <input type="text" name="judul_lagu" id="judul_lagu"/>
+            </div>
+            <div class="song-detail-container">
+              <label for="penyanyi_lagu">Artist Name</label>
+              <input type="text" name="penyanyi_lagu" id="penyanyi_lagu"/>
+            </div>
+            <div class="song-detail-container">
+              <label for="tanggalterbit_lagu">Date of Release</label>
+              <input type="text" name="tanggalterbit_lagu" id="tanggalterbit_lagu"/>
+            </div>
+            <div class="song-detail-container">
+              <label for="genre_lagu">Genre</label>
+              <input type="text" name="genre_lagu" id="genre_lagu"/>
+            </div>
+            <div class="song-detail-container">
+              <select name="album_lagu" id="album_lagu">
+                <option value="" disabled selected>Choose Album</option>
+                <option value="asdf">asdf</option>
+              </select>
+            </div>
+            <div class="song-detail-container">
+              <label for="img_lagu">Upload Cover:</label>
+              <input type="file" name="img_lagu" id="img_lagu" accept=".png, .jpg, .jpeg"/>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="player">
+    </div>
+  </div>
+  <script src="./scripts/navbar.js"></script>
+  <script src="./scripts/player.js"></script>
+  <script src="./scripts/fetcher.js"></script>
+  <script src="./scripts/button.js"></script>
+</body>
+
+
+</html>
