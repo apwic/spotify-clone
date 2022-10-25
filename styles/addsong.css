@@ -37,6 +37,11 @@ select {
     padding-top: 2%;
 }
 
+#img_lagu {
+    padding: 0;
+    padding-top: 2%;
+}
+
 #uploadForm {
     background-color: var(--light_green);
     height: 100%;

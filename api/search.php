@@ -7,7 +7,7 @@ $page_size = constant('PAGE_SIZE');
 if(isset($_GET['q']) && $_GET['q'] != "") {
   $q = "%{$_GET['q']}%";
   $prepare_query = "SELECT `song_id`, `judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id` 
-                    FROM `song` 
+                    FROM `SONG` 
                     WHERE LOWER(`judul`) LIKE LOWER(?) OR LOWER(`penyanyi`) LIKE ? OR YEAR(`tanggal_terbit`) = ?";
 
   # Check if there's a filter

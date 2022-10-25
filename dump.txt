@@ -9,5 +9,7 @@ set foreign_key_checks=1;
 INSERT INTO album (judul, penyanyi, total_duration, image_path, tanggal_terbit, genre)
 VALUES ('LEGEND', 'JANNABI', '2787', 'test', '2022-10-24', 'RnB');
 
-INSERT INTO song (judul, penyanyi, tanggal_terbit, genre, duration, audio_path, image_path, album_id)
+INSERT INTO song (judul, penyanyi, genre, tanggal_terbit, duration, audio_path, image_path, album_id)
 VALUES ('for lovers who hesistate', 'JANNABI', 'RnB', '2022-10-24', '245', 'test', 'test', 1);
+
+INSERT INTO ALBUM (genre, image_path, judul, penyanyi, tanggal_terbit, total_duration) VALUES ('RnB', 'test', 'asdf', 'yoyo', '2022-10-24', '24'); 
