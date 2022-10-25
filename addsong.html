@@ -21,9 +21,9 @@
           Add Song
         </div>
         <div class="song-detail">
-          <form action="upload.php" method="post" enctype="multipart/form-data">
+          <form enctype="multipart/form-data" method="post" onsubmit="addSong(event)">
             <div class="song-detail-container">
-              <label for="file_lagu">Select Song to Add:</label>
+              <label for="file_lagu">Select Song to Add</label>
               <input type="file" name="file_lagu" id="file_lagu" accept=".mp3"/>
             </div>
             <div class="song-detail-container">
@@ -43,15 +43,17 @@
               <input type="text" name="genre_lagu" id="genre_lagu"/>
             </div>
             <div class="song-detail-container">
+              <label for="album_lagu">Choose Album</label>
               <select name="album_lagu" id="album_lagu">
-                <option value="" disabled selected>Choose Album</option>
+                <option value="" disabled selected>Albums...</option>
                 <option value="asdf">asdf</option>
               </select>
             </div>
             <div class="song-detail-container">
-              <label for="img_lagu">Upload Cover:</label>
+              <label for="img_lagu">Upload Cover</label>
               <input type="file" name="img_lagu" id="img_lagu" accept=".png, .jpg, .jpeg"/>
             </div>
+            <input type="submit" value="Submit" id="uploadForm" name="submit"/>
           </form>
         </div>
       </div>
@@ -63,6 +65,7 @@
   <script src="./scripts/player.js"></script>
   <script src="./scripts/fetcher.js"></script>
   <script src="./scripts/button.js"></script>
+  <script src="./scripts/addsong.js"></script>
 </body>
 
 
