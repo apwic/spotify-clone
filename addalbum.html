@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="google" content="notranslate">
+    <title>Sepotipayi</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/navbar.css" />
+    <link rel="stylesheet" href="styles/player.css" />
+    <link rel="stylesheet" href="styles/addalbum.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div id="navbar">
+    </div>
+    <div class="page-container">
+        <div class="page-title">
+          Add Album
+        </div>
+        <div class="album-detail">
+          <form action="upload.php" method="post" enctype="multipart/form-data">
+            <div class="album-detail-container">
+              <label for="img_album">Select Album Cover:</label>
+              <input type="file" name="img_album" id="img_album" accept=".png, .jpg, .jpeg"/>
+            </div>
+            <div class="album-detail-container">
+              <label for="judul_album">Album Title</label>
+              <input type="text" name="judul_album" id="judul_album"/>
+            </div>
+            <div class="album-detail-container">
+              <label for="penyanyi_album">Artist Name</label>
+              <input type="text" name="penyanyi_album" id="penyanyi_album"/>
+            </div>
+            <div class="album-detail-container">
+              <label for="file_album">Date of Release</label>
+              <input type="text" name="file_album" id="file_album"/>
+            </div>
+            <div class="album-detail-container">
+              <label for="genre_album">Genre</label>
+              <input type="text" name="genre_album" id="genre_album"/>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="player">
+    </div>
+  </div>
+  <script src="./scripts/navbar.js"></script>
+  <script src="./scripts/player.js"></script>
+  <script src="./scripts/fetcher.js"></script>
+  <script src="./scripts/button.js"></script>
+</body>
+
+
+</html>

@@ -35,6 +35,12 @@ body {
 .page-container {
   width: 82%;
   height: 100%;
+  padding: 4%;
+  color: white;
   background-color: var(--black);
 }
 
+.page-title {
+  font-weight: var(--extra_bold);
+  font-size: clamp(0.9rem, 4vw, 3.5rem);
+}

@@ -1,0 +1,37 @@
+.album-detail {
+  margin-top: 5%;
+  width: 55%;
+}
+
+.album-detail-container {
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin-right: 5%;
+}
+
+input {
+  width: 45%;
+  height: 2.5vw;
+  padding: 1% 1.5%;
+  font-weight: 400;
+}
+
+select {
+  margin-top: 5%;
+  height: 2.5vw;
+  width: 40%;
+  max-width: 300px;
+  padding: 0 1.5%;
+  border-radius: 25px;
+}
+
+#img_album {
+  padding: 0;
+}
