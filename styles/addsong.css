@@ -1,55 +1,59 @@
 .song-detail {
-    margin-top: 5%;
-    width: 55%;
+  margin-top: 5%;
+  width: 55%;
 }
 
 .song-detail-container {
-    margin-bottom: 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 label {
-    font-weight: 500;
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-    margin-right: 5%;
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin-right: 5%;
 }
 
 input {
-    width: 45%;
-    height: 2.5vw;
-    min-height: 30px;
-    padding: 1% 1.5%;
-    font-weight: 400;
+  width: 45%;
+  height: 2.5vw;
+  min-height: 30px;
+  padding: 1% 1.5%;
+  font-weight: 400;
 }
 
 select {
-    height: 2.5vw;
-    min-height: 30px;
-    width: 45%;
-    padding: 0 1.5%;
-    border-radius: 15px;
+  height: 2.5vw;
+  min-height: 30px;
+  width: 45%;
+  padding: 0 1.5%;
 }
 
 #file_lagu {
-    padding: 0;
-    padding-top: 2%;
+  padding: 0;
+  padding-top: 2%;
 }
 
 #img_lagu {
-    padding: 0;
-    padding-top: 2%;
+  padding: 0;
+  padding-top: 2%;
+}
+
+#penyanyi_lagu {
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.65);
 }
 
 #uploadForm {
-    background-color: var(--light_green);
-    height: 100%;
-    width: 12vw;
-    max-width: 200px;
-    padding: 2%;
-    border-radius: 15px;
-    margin-top: 3%;
-    font-weight: 600;
-    cursor: pointer;
+  background-color: var(--light_green);
+  height: 100%;
+  width: 12vw;
+  max-width: 200px;
+  padding: 2%;
+  border-radius: 15px;
+  margin-top: 3%;
+  font-weight: 600;
+  cursor: pointer;
 }
