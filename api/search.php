@@ -37,7 +37,7 @@ if(isset($_GET['q']) && $_GET['q'] != "") {
   }
 
   $query_result = $query->get_result();
-  $payload = [];
+  $result = [];
   $count_rows = $query_result->num_rows;
   $page = $_GET['page'];
   $page_start = ($page - 1) * $page_size;
@@ -49,10 +49,11 @@ if(isset($_GET['q']) && $_GET['q'] != "") {
   }
 
   // FETCH BY PAGE
-  for($i = $page_start;$i < $page_end;$i++) {
-    $row = $query_result->fetch_assoc();
-    array_push($payload, $row);
+  while ($row = $query_result->fetch_assoc()) {
+    array_push($result, $row);
   }
+
+  $payload = array_slice($result, $page_start, $page_end);
 
   $result = ["status" => "success", "description" => "search completed", "payload" => $payload];
   echo json_encode($result);

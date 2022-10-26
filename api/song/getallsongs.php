@@ -4,7 +4,8 @@ require_once "../config.php";
 $page_size = constant('PAGE_SIZE');
 
 $query = $con->prepare("SELECT `song_id`, `judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id` 
-                        FROM `SONG`");
+                        FROM `SONG`
+                        ORDER BY tanggal_terbit DESC");
 
 if(!$query->execute()){
   $result = ["status" => "error", "description" => $con->error];
@@ -13,7 +14,7 @@ if(!$query->execute()){
 }
 
 $query_result = $query->get_result();
-$payload = [];
+$result = [];
 $count_rows = $query_result->num_rows;
 $page = $_GET['page'];
 $page_start = ($page - 1) * $page_size;
@@ -25,10 +26,11 @@ if ($page_start + $page_size < $count_rows) {
 }
 
 // FETCH BY PAGE
-for($i = $page_start;$i < $page_end;$i++) {
-  $row = $query_result->fetch_assoc();
-  array_push($payload, $row);
+while ($row = $query_result->fetch_assoc()) {
+  array_push($result, $row);
 }
+
+$payload = array_slice($result, $page_start, $page_end);
 
 if (!$payload) {
   $result = ["status" => "error", "description" => "no songs"];
