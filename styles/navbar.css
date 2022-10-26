@@ -11,6 +11,8 @@
   width: 84%;
   height: 100%;
   margin-left: 8%;
+  position: relative;
+  z-index: 3;
 }
 
 .section-features {

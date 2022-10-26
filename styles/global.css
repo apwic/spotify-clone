@@ -59,11 +59,24 @@ body {
 }
 
 .song-list {
-  margin-top: 2.5%;
-  margin-bottom: 2.5%;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
   display: flex;
   justify-content: left;
   align-items: center;
+  position: relative;
+}
+
+.song-list:hover{
+  cursor: pointer;
+}
+
+.song-list > img {
+  pointer-events: none;
+}
+
+.song-list > label {
+  pointer-events: none;
 }
 
 .album-list-container {
@@ -76,8 +89,8 @@ body {
 }
 
 .album-list {
-  margin-top: 2.5%;
-  margin-bottom: 2.5%;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
   display: flex;
   justify-content: left;
   align-items: center;

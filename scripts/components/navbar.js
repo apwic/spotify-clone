@@ -118,9 +118,8 @@ const isThisAdmin = () => {
       name = userdata.dataUser.username;
     }
 
-    console.log(thisIsAdmin, hasLogin, name);
-    document.getElementById("navbar").innerHTML = navbarLayout("admin", hasLogin, name);
-    document.getElementById("user-panel").innerHTML = userPanel("admin", name);
+    document.getElementById("navbar").innerHTML = navbarLayout(thisIsAdmin, hasLogin, name);
+    document.getElementById("user-panel").innerHTML = userPanel(thisIsAdmin, name);
   });
 };
 

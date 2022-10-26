@@ -1,0 +1,22 @@
+.song-detail-container > img {
+  height: 25vh;
+  width: 50vh;
+}
+
+.song-detail {
+  margin-top: 5%;
+  width: 55%;
+}
+
+.song-detail-container {
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin-right: 5%;
+}

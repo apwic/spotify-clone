@@ -10,6 +10,7 @@
   position: absolute;
   width: 90%;
   gap: 5%;
+  z-index: 3;
 }
 
 .search-bar {
