@@ -13,7 +13,7 @@ if (!isset($_POST['username'])) {
     $password = $_POST['password'];
 
     // check and validate the username
-    $sqlQuery = $con->prepare('SELECT * FROM `users` WHERE `username` = ?');
+    $sqlQuery = $con->prepare('SELECT * FROM `USERS` WHERE `username` = ?');
     $sqlQuery->bind_param('s', $username);
 
     // this code to check response code for debugging

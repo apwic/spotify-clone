@@ -15,7 +15,7 @@ if (!isset($_POST['username'])) {
     $isadmin = 0;
 
     // check if the user is already registered
-    $sqlQuery = $con->prepare('SELECT `username` FROM `users` WHERE `username` = ? AND `email` = ?');
+    $sqlQuery = $con->prepare('SELECT `username` FROM `USERS` WHERE `username` = ? AND `email` = ?');
     $sqlQuery->bind_param('ss', $username, $email);
 
     // this code to check response code for debugging
@@ -36,7 +36,7 @@ if (!isset($_POST['username'])) {
     }
 
     // insert the data into users tables
-    $sqlQuery = $con->prepare('INSERT INTO `users` (`username`, `email`, `password`, `isAdmin`) VALUES (?, ?, ?, ?)');
+    $sqlQuery = $con->prepare('INSERT INTO `USERS` (`username`, `email`, `password`, `isAdmin`) VALUES (?, ?, ?, ?)');
     $sqlQuery->bind_param('sssi', $username, $email, $password, $isadmin);
 
     // this code to check response code for debugging

@@ -1,10 +1,24 @@
+const userPanel = (role, username) => {
+  return `
+    <div id="user-panel">
+    ${
+      role === "admin" ?
+      `
+        <div class="user-icon" onClick="goToUserList()"></div>
+      `
+      : `
+        <div class="user-text">
+          Hello, <strong>${username}</strong>
+        </div>
+      `
+    }
+    </div>
+  `
+}
+
 const navbarLayout = (role, loginStatus, name) => {
   return `
-        ${
-          role === "admin"
-            ? `<div class="navbar-container-admin">`
-            : `<div class="navbar-container">`
-        }
+        <div class="navbar-container">
         <div class="section-features">
             <div class="feature-group" onClick="goToHome()">
               <img src="./assets/image/home.png"/>
@@ -35,9 +49,6 @@ const navbarLayout = (role, loginStatus, name) => {
             </div>`
             : ``
         }
-            <div class="feature-group">
-              <div>Hello, ${name}!</div>
-            </div>
             <div class="feature-group" onClick="logout()">
               <img src="./assets/image/exit.png"/>
               <div>${loginStatus === true ? "Log Out" : "Log In"}</div>
@@ -57,6 +68,10 @@ const navbarLayout = (role, loginStatus, name) => {
         </div>
       `;
 };
+
+goToUserList = () => {
+  window.location.href = `${window.location.protocol}//${window.location.host}/userlist.html`;
+}
 
 goToAddSong = () => {
   window.location.href = `${window.location.protocol}//${window.location.host}/addsong.html`;
@@ -103,8 +118,9 @@ const isThisAdmin = () => {
       name = userdata.dataUser.username;
     }
 
-    console.log(thisIsAdmin);
-    document.getElementById("navbar").innerHTML = navbarLayout(thisIsAdmin, hasLogin, name);
+    console.log(thisIsAdmin, hasLogin, name);
+    document.getElementById("navbar").innerHTML = navbarLayout("admin", hasLogin, name);
+    document.getElementById("user-panel").innerHTML = userPanel("admin", name);
   });
 };
 
