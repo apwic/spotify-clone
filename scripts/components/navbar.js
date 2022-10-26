@@ -16,7 +16,7 @@ const userPanel = (role, username) => {
   `
 }
 
-const navbarLayout = (role, loginStatus, name) => {
+const navbarLayout = (role, loginStatus) => {
   return `
         <div class="navbar-container">
         <div class="section-features">
@@ -118,7 +118,8 @@ const isThisAdmin = () => {
       name = userdata.dataUser.username;
     }
 
-    document.getElementById("navbar").innerHTML = navbarLayout(thisIsAdmin, hasLogin, name);
+    console.log(thisIsAdmin, hasLogin, name);
+    document.getElementById("navbar").innerHTML = navbarLayout(thisIsAdmin, hasLogin);
     document.getElementById("user-panel").innerHTML = userPanel(thisIsAdmin, name);
   });
 };

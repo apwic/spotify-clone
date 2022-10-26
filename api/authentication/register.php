@@ -15,13 +15,14 @@ if (!isset($_POST['username'])) {
     $isadmin = 0;
 
     // check if the user is already registered
-    $sqlQuery = $con->prepare('SELECT `username` FROM `USERS` WHERE `username` = ? AND `email` = ?');
+    $sqlQuery = $con->prepare('SELECT `username` FROM `users` WHERE `username` = ? OR `email` = ?');
     $sqlQuery->bind_param('ss', $username, $email);
 
     // this code to check response code for debugging
     if (!$sqlQuery->execute()) {
         $result = ["status" => "error", "description" => "Query not executed"];
         http_response_code(500);
+        
         exit(json_encode($result));
     }
 
