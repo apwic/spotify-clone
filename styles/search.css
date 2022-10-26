@@ -1,8 +1,3 @@
-
-.relative-pos {
-  position: relative;
-}
-
 .search-bar-container {
   width: 100%;
   height: 10%;
@@ -23,54 +18,8 @@
   width: 25%;
 }
 
-.song-list-container {
-  height: 64vh;
-  overflow-y: auto;
-  margin-bottom: 5%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  padding-bottom: 5%;
-}
-
-.song-list {
-  margin-top: 2.5%;
-  margin-bottom: 2.5%;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
 .song-list > img {
   margin-right: 5%;
   height: 2.25vh;
   width: 2.25vh;
-}
-
-.page-anchor {
-  height: 5%;
-  width: 82%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  bottom: 10vh;
-}
-
-.page-anchor > label {
-  margin-left: 5%;
-  margin-right: 5%;
-  font-size: 1.5vh;
-}
-
-.page-anchor-button {
-  height: 100%;
-  width: 5vw;
-  background-color: var(--light_green);
-  border: none;
-  border-radius: 15px;
-  font-size: 1.5vh;
-  font-weight: bold;
-  gap: 2.5%;
-  cursor: pointer;
 }

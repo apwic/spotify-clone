@@ -34,7 +34,7 @@ function isUserAlreadyLoggedIn($con) {
     $sessionToken = $headers['sessionToken'];
 
     // check session in database
-    $sqlQuery = $con->prepare('SELECT * FROM `SESSIONS` WHERE `session_id` = ?');
+    $sqlQuery = $con->prepare('SELECT * FROM `sessions` WHERE `session_id` = ?');
     $sqlQuery->bind_param('s', $sessionToken);
     
     // check the query executing

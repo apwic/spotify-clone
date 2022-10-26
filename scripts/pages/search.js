@@ -1,6 +1,5 @@
 const populateData = () => {
   getAPI("./api/genre/getdistinctgenre.php", (data) => {
-    console.log(data);
     const jsonData = JSON.parse(data);
     const genres = jsonData.payload;
     const genreSelect = document.getElementById("genre");
@@ -14,7 +13,6 @@ const populateData = () => {
 }
 
 const searchLayout = (query, filter, sort, page) => {
-  console.log(query, filter, sort, page);
   if (page > 0) {
     let apiCall;
     if (filter == "0"){
@@ -25,7 +23,6 @@ const searchLayout = (query, filter, sort, page) => {
 
     getAPI(apiCall, (data) => {
       const jsonData = JSON.parse(data);
-      console.log(jsonData);
       songs = jsonData.payload;
       document.getElementById("page-container").innerHTML = '';
       str = `

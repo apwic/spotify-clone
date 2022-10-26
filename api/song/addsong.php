@@ -21,13 +21,13 @@ if(!$query->execute()){
   http_response_code(500);
   exit(json_encode($result));
 }
-$total_duration = ($query->get_result()->fetch_assoc())["total_duration"];
+$current_duration = intval(($query->get_result()->fetch_assoc())["total_duration"] + $duration);
 
 // update album's total duration
 $query = $con->prepare("UPDATE `ALBUM`
                         SET `total_duration` = ?
                         WHERE `album_id` = ?");
-$query->bind_param("ii", intval($total_duration + $duration), $album_id);
+$query->bind_param("ii", $current_duration, $album_id);
 if(!$query->execute()) {
   $result = ["status" => "error", "description" => "disini cokkkk"];
   http_response_code(500);
@@ -43,7 +43,7 @@ if (!$mainquery->execute()) {
     exit(json_encode($result));
 }
 
-$result = ["status" => "success", "description" => "song successfully added", "session" => $session];
+$result = ["status" => "success", "description" => "song successfully added"];
 http_response_code(200);
 
 echo json_encode($result);

@@ -79,7 +79,7 @@ const goToTest = () => {
 }
 
 const goToAlbumList = () => {
-  alert("Nanti diisi pake fungsi get album list");
+  window.location.href = `${window.location.protocol}//${window.location.host}/albumlist.html`;
 };
 
 const logout = () => {
@@ -90,6 +90,7 @@ const logout = () => {
 const isThisAdmin = () => {
   getAPI('/api/authentication/userdata.php', (data) => {
     const userdata = JSON.parse(data);
+    console.log(userdata);
     let thisIsAdmin = "user";
     let hasLogin = false;
     let name = "Guest";

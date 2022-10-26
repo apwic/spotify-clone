@@ -37,7 +37,7 @@ CREATE TABLE USERS (
 CREATE TABLE SESSIONS (
 	session_id CHAR(255) NOT NULL,
     user_id INT NOT NULL,
-    exp DATE NOT NULL,
+    exp CHAR(255) NOT NULL,
     PRIMARY KEY(session_id),
     CONSTRAINT fk_usersess
     FOREIGN KEY(user_id)
