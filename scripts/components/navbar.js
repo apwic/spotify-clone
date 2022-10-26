@@ -67,7 +67,7 @@ goToAddAlbum = () => {
 };
 
 goToSearch = () => {
-  alert("Nanti diisi ke search");
+  window.location.href = `${window.location.protocol}//${window.location.host}/search.html`;
 };
 
 const goToHome = () => {

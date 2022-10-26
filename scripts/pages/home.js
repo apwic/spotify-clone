@@ -7,6 +7,7 @@ const songsLayout = (page) => {
       str = `<div class="page-title">Sepotipayi
             </div>
             <div id="songs" class="song-list-container">`;
+
       str += songs.map(song =>
         `<div class="song-list">
           <img src="./assets/image/menu-burger.png"/>
@@ -21,6 +22,8 @@ const songsLayout = (page) => {
         <label><b>${page}</b></label>
         <button class="page-anchor-button" onclick="songsLayout(${page + 1})">\></button>
         </div>`;
+
+      console.log(str);
       document.getElementById("page-container").innerHTML =  str;
 
       window.history.replaceState(

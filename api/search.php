@@ -11,7 +11,7 @@ if(isset($_GET['q']) && $_GET['q'] != "") {
                     WHERE LOWER(`judul`) LIKE LOWER(?) OR LOWER(`penyanyi`) LIKE ? OR YEAR(`tanggal_terbit`) = ?";
 
   # Check if there's a filter
-  if(isset($_GET['filter'])){
+  if(isset($_GET['filter']) && $_GET['filter'] != "") {
     $prepare_query .= " AND `genre` = ?";
 
     # Check if there's a sort

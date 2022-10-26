@@ -1,6 +1,28 @@
+
 .relative-pos {
   position: relative;
 }
+
+.search-bar-container {
+  width: 100%;
+  height: 10%;
+}
+
+.search-bar-container > form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 90%;
+  gap: 5%;
+}
+
+.search-bar {
+  float: left;
+  height: 100%;
+  width: 25%;
+}
+
 .song-list-container {
   height: 64vh;
   overflow-y: auto;
@@ -51,10 +73,4 @@
   font-weight: bold;
   gap: 2.5%;
   cursor: pointer;
-}
-
-label {
-  font-weight: 500;
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
-  margin-right: 5%;
 }
