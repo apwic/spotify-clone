@@ -17,7 +17,7 @@ $query = $con->prepare("SELECT `total_duration`
                         WHERE `album_id` = ?");
 $query->bind_param("i", $album_id);
 if(!$query->execute()){
-  $result = ["status" => "error", "description" => "disini cuk"];
+  $result = ["status" => "error", "description" => "unable to find album"];
   http_response_code(500);
   exit(json_encode($result));
 }
@@ -29,7 +29,7 @@ $query = $con->prepare("UPDATE `ALBUM`
                         WHERE `album_id` = ?");
 $query->bind_param("ii", $current_duration, $album_id);
 if(!$query->execute()) {
-  $result = ["status" => "error", "description" => "disini cokkkk"];
+  $result = ["status" => "error", "description" => "unable to add song"];
   http_response_code(500);
   exit(json_encode($result));
 }

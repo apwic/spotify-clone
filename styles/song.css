@@ -13,10 +13,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 3vh;
 }
 
 label {
   font-weight: 500;
   font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin-right: 5%;
+}
+
+#image_path > img {
+  height: 3vh;
+  width: 3vh;
+  margin-right: 5%;
+}
+
+audio {
+  height: 3vh;
+  width: 50%;
   margin-right: 5%;
 }

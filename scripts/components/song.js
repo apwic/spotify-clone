@@ -21,4 +21,17 @@ const getSong = () => {
   );
 }
 
+const deleteSong = () => {
+  const id = new URLSearchParams(window.location.search).get("id");
+  const formData = new FormData();
+  formData.append("id", id);
+  postAPI(
+    `./api/song/deletesong.php`, (data) => {
+      const jsonData = JSON.parse(data);
+      alert(jsonData.description);
+      goToHome();
+    }, formData
+  );
+}
+
 getSong();
