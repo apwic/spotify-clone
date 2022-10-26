@@ -31,27 +31,27 @@
               <input type="text" name="judul_lagu" id="judul_lagu"/>
             </div>
             <div class="song-detail-container">
-              <label for="penyanyi_lagu">Artist Name</label>
-              <input type="text" name="penyanyi_lagu" id="penyanyi_lagu"/>
-            </div>
-            <div class="song-detail-container">
               <label for="tanggalterbit_lagu">Date of Release</label>
-              <input type="text" name="tanggalterbit_lagu" id="tanggalterbit_lagu"/>
+              <input type="text" name="tanggalterbit_lagu" id="tanggalterbit_lagu" placeholder="YYYY-MM-DD"/>
             </div>
             <div class="song-detail-container">
               <label for="genre_lagu">Genre</label>
               <input type="text" name="genre_lagu" id="genre_lagu"/>
             </div>
             <div class="song-detail-container">
+              <label for="img_lagu">Upload Cover</label>
+              <input type="file" name="img_lagu" id="img_lagu" accept=".png, .jpg, .jpeg"/>
+            </div>
+            <div class="song-detail-container">
               <label for="album_lagu">Choose Album</label>
-              <select name="album_lagu" id="album_lagu">
+              <select name="album_lagu" id="album_lagu" onchange="setArtist()">
                 <option value="" disabled selected>Albums...</option>
                 <option value="asdf">asdf</option>
               </select>
             </div>
             <div class="song-detail-container">
-              <label for="img_lagu">Upload Cover</label>
-              <input type="file" name="img_lagu" id="img_lagu" accept=".png, .jpg, .jpeg"/>
+              <label for="penyanyi_lagu">Artist Name</label>
+              <input type="text" name="penyanyi_lagu" id="penyanyi_lagu"/>
             </div>
             <input type="submit" value="Submit" id="uploadForm" name="submit"/>
           </form>
@@ -61,11 +61,12 @@
     <div id="player">
     </div>
   </div>
-  <script src="./scripts/navbar.js"></script>
-  <script src="./scripts/player.js"></script>
-  <script src="./scripts/fetcher.js"></script>
-  <script src="./scripts/button.js"></script>
-  <script src="./scripts/addsong.js"></script>
+  <script src="./scripts/components/navbar.js"></script>
+  <script src="./scripts/components/player.js"></script>
+  <script src="./scripts/utils/fetcher.js"></script>
+  <script src="./scripts/pages/button.js"></script>
+  <script src="./scripts/pages/addsong.js"></script>
+  <script src="./scripts/pages/selector.js"></script>
   <script src="./scripts/authentication/handleCookie.js"></script>
 </body>
 

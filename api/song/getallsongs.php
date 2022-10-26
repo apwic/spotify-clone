@@ -4,7 +4,7 @@ require_once "../config.php";
 $page_size = constant('PAGE_SIZE');
 
 $query = $con->prepare("SELECT `song_id`, `judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id` 
-                        FROM `song`");
+                        FROM `SONG`");
 
 if(!$query->execute()){
   $result = ["status" => "error", "description" => $con->error];

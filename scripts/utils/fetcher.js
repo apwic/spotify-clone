@@ -14,10 +14,10 @@ const getAPI = (endpoint, callback, data) => {
 
     xhr.open("GET", endpoint);
 
-    const sessionId = getCookie("session_id");
-    if (sessionId) {
-        xhr.setRequestHeader("sessionToken", sessionId);
-    }
+    // const sessionId = getCookie("session_id");
+    // if (sessionId) {
+    //     xhr.setRequestHeader("sessionToken", sessionId);
+    // }
 
     data ? xhr.send(data) : xhr.send();
 };
@@ -39,10 +39,10 @@ const postAPI = (endpoint, callback, data) => {
     
     xhr.open("POST", endpoint);
     
-    const sessionId = getCookie("session_id");
-    if (sessionId) {
-        xhr.setRequestHeader("sessionToken", sessionId);
-    }
+    // const sessionId = getCookie("session_id");
+    // if (sessionId) {
+    //     xhr.setRequestHeader("sessionToken", sessionId);
+    // }
 
     data ? xhr.send(data) : xhr.send();
 };

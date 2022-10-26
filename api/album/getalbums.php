@@ -4,7 +4,7 @@ require_once '../config.php';
 $page_size = constant('PAGE_SIZE');
 
 $query = $con->prepare("SELECT `album_id`, `judul`, `penyanyi`, `total_duration`, `image_path`, `tanggal_terbit`, `genre`
-                        FROM `album`");
+                        FROM `ALBUM`");
 
 if(!$query->execute()){
   $result = ["status" => "error", "description" => $con->error];
@@ -38,4 +38,3 @@ if (!$payload) {
   $result = ["status" => "success", "description" => "albums retrieved", "payload" => $payload];
   echo json_encode($result);
 }
-

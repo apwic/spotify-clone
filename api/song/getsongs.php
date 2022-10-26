@@ -1,11 +1,10 @@
-
 <?php
 
 require_once '../config.php';
 
 $id = $_GET['album_id'];
 $query = $con->prepare("SELECT `song_id`, `judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id` 
-                        FROM `song` 
+                        FROM `SONG` 
                         WHERE `album_id` = ?");
 $query->bind_param("i", $id);
 
@@ -30,4 +29,3 @@ if (!$payload) {
   $result = ["status" => "success", "description" => "songs retrieved", "payload" => $payload];
   echo json_encode($result);
 }
-
