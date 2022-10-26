@@ -26,7 +26,11 @@ const addSong = (e) => {
       "/api/addfile.php",
       (resp) => {
         audio_path = callback(resp);
-        addImage(coverFile, audio_path, img_path);
+        const audio = new Audio(audio_path);
+        audio.onloadedmetadata = function () {
+          audio_duration = audio.duration;
+          addImage(coverFile, audio_path, img_path, audio_duration);
+        };
       },
       songFile
     );
@@ -37,22 +41,22 @@ const addSong = (e) => {
   return;
 };
 
-const addImage = (coverFile, audio_path, img_path) => {
+const addImage = (coverFile, audio_path, img_path, audio_duration) => {
   postAPI(
     "/api/addfile.php",
     (resp) => {
       img_path = callback(resp);
-      postSong(img_path, audio_path);
+      postSong(img_path, audio_path, audio_duration);
     },
     coverFile
   );
 };
 
-const postSong = (img_path, audio_path) => {
+const postSong = (img_path, audio_path, audio_duration) => {
   const songDetail = populateData();
   songDetail.append("audio_path", audio_path);
   songDetail.append("image_path", img_path);
-  songDetail.append("duration", 234);
+  songDetail.append("duration", audio_duration);
 
   postAPI("/api/song/addsong.php", callbackAdded, songDetail);
   return;
