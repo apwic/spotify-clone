@@ -32,6 +32,8 @@ const registered = (e) => {
 
         // post to checking the register to backend
         postAPI('/api/authentication/register.php', callbackRegisters, dataRegister);
+    } else {
+        alert('Password does not match!');
     }
     
     return;

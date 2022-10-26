@@ -9,14 +9,12 @@ if (!isset($_POST['username'])) {
     exit(json_encode($result));
 } else {
     // set the default values from data input
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $username = $_POST['username'];
-    $isadmin = 0;
+    $password = $_POST['password'];
 
-    // check if the user is already registered
-    $sqlQuery = $con->prepare('SELECT `username` FROM `users` WHERE `username` = ? AND `email` = ?');
-    $sqlQuery->bind_param('ss', $username, $email);
+    // check and validate the username
+    $sqlQuery = $con->prepare('SELECT * FROM `users` WHERE `username` = ?');
+    $sqlQuery->bind_param('s', $username);
 
     // this code to check response code for debugging
     if (!$sqlQuery->execute()) {
@@ -27,35 +25,32 @@ if (!isset($_POST['username'])) {
 
     $queryResult = $sqlQuery->get_result();
 
-    // there is data with given username and email
-    if ($queryResult->num_rows != 0) {
-        $result = ["status" => "error", "description" => "User already registered"];
+    // there is no data with given username
+    if ($queryResult->num_rows != 1) {
+        $result = ["status" => "error", "description" => "No such user"];
         http_response_code(401);
 
         exit(json_encode($result));
     }
 
-    // insert the data into users tables
-    $sqlQuery = $con->prepare('INSERT INTO `users` (`username`, `email`, `password`, `isAdmin`) VALUES (?, ?, ?, ?)');
-    $sqlQuery->bind_param('sssi', $username, $email, $password, $isadmin);
-
-    // this code to check response code for debugging
-    if (!$sqlQuery->execute()) {
-        $result = ["status" => "error", "description" => "Query not executed"];
-        http_response_code(500);
+    // check if the password is correct
+    $rowQueryResult = $queryResult->fetch_assoc();
+    if (!password_verify($password, $rowQueryResult['password'])) {
+        $result = ["status" => "error", "description" => "Invalid password"];
+        http_response_code(400);
 
         exit(json_encode($result));
     }
 
-    // insert the id to autoincrement column and keep the value
-    $userID = $sqlQuery->insert_id;
+    // get the user id
+    $userID = $rowQueryResult['user_id'];
 
     // set the session's expired time
     $expTime = time() + 1800;
     $setDate = date('Y-m-d H:i:s', $expTime);
 
     // make the session id with hash
-    $sessionHash = hash('sha256', $userID . $username);
+    $sessionHash = hash('sha256', $userID . $expTime);
 
     // insert the session to sessions column
     $sqlQuery = $con->prepare('INSERT INTO `SESSIONS` (`session_id`, `user_id`, `exp`) VALUES (?, ?, ?)');
@@ -71,7 +66,7 @@ if (!isset($_POST['username'])) {
 
     // return the session id to validate user and set the cookie
     $session = ["sessionToken" => $sessionHash];
-    $result = ["status" => "success", "description" => "User has registered", "session" => $session];
+    $result = ["status" => "success", "description" => "User is logged in", "session" => $session];
     http_response_code(200);
     
     echo json_encode($result);

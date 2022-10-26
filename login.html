@@ -11,7 +11,8 @@
             <div id="title">Sepotipayi</div>
         </header>
 
-        <form>
+        <form onsubmit="logined(event)" enctype="multipart/form">
+            <br /><br />
             <div class="form-style">To continue listening for free, log in to Sepotipayi</div>
             <br /><br />
             <div class="form-style">Enter your username</div>
@@ -20,10 +21,11 @@
             <input class="form-style input-style" type="password" id="password" name="password" placeholder="Password" />
             <button class="form-style button-style" type="submit">Log In</button>
             <br /><br />
-            <div class="form-style">Don't have an account? <a href="register.html">Sign up for Sepotipayi</a></div>
+            <div class="form-style">Don't have an account? <a href="register.html">Register for Sepotipayi</a></div>
         </form>
-        <script></script>
-        <script></script>
-        <script></script>
+        
+        <script src="scripts/authentication/handleCookie.js"></script>
+        <script src="scripts/fetcher.js"></script>
+        <script src="scripts/login.js"></script>
     </body>
 </html>
