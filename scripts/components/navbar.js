@@ -1,4 +1,4 @@
-const navbarLayout = (role) => {
+const navbarLayout = (role, loginStatus, name) => {
   return `
         ${
           role === "admin"
@@ -35,9 +35,12 @@ const navbarLayout = (role) => {
             </div>`
             : ``
         }
+            <div class="feature-group">
+              <div>Hello, ${name}!</div>
+            </div>
             <div class="feature-group" onClick="logout()">
               <img src="./assets/image/exit.png"/>
-              <div>Log Out</div>
+              <div>${loginStatus === true ? "Log Out" : "Log In"}</div>
             </div>
           </div>
           <div class="section-playlist" onClick="alert('lala kebo')">
@@ -80,8 +83,28 @@ const goToAlbumList = () => {
 };
 
 const logout = () => {
+  deleteCookie();
   window.location.href = `${window.location.protocol}//${window.location.host}/login.html`;
-  alert("Nanti diisi pake fungsi log out");
 };
 
-document.getElementById("navbar").innerHTML = navbarLayout("admin");
+const isThisAdmin = () => {
+  getAPI('/api/authentication/userdata.php', (data) => {
+    const userdata = JSON.parse(data);
+    let thisIsAdmin = "user";
+    let hasLogin = false;
+    let name = "Guest";
+
+    if (userdata.hasOwnProperty('status') && userdata['status'] === 'success') {
+      if (userdata.dataUser.isAdmin === "1") {
+        thisIsAdmin = "admin";
+      }
+      hasLogin = true;
+      name = userdata.dataUser.username;
+    }
+
+    console.log(thisIsAdmin);
+    document.getElementById("navbar").innerHTML = navbarLayout(thisIsAdmin, hasLogin, name);
+  });
+};
+
+isThisAdmin();
