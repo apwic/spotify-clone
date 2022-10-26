@@ -11,7 +11,30 @@ $album_id = $_POST['album_lagu'];
 $penyanyi = $_POST['penyanyi_lagu'];
 $tanggal_terbit = $_POST['tanggalterbit_lagu'];
 
-// insertion of song
+// get album's current total duration
+$query = $con->prepare("SELECT `total_duration` 
+                        FROM `ALBUM` 
+                        WHERE `album_id` = ?");
+$query->bind_param("i", $album_id);
+if(!$query->execute()){
+  $result = ["status" => "error", "description" => "disini cuk"];
+  http_response_code(500);
+  exit(json_encode($result));
+}
+$total_duration = ($query->get_result()->fetch_assoc())["total_duration"];
+
+// update album's total duration
+$query = $con->prepare("UPDATE `ALBUM`
+                        SET `total_duration` = ?
+                        WHERE `album_id` = ?");
+$query->bind_param("ii", intval($total_duration + $duration), $album_id);
+if(!$query->execute()) {
+  $result = ["status" => "error", "description" => "disini cokkkk"];
+  http_response_code(500);
+  exit(json_encode($result));
+}
+
+// insert song to db
 $mainquery = $con->prepare('INSERT INTO `SONG` (`album_id`, `audio_path`, `duration`, `genre`, `image_path`, `judul`, `penyanyi`, `tanggal_terbit`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
 $mainquery->bind_param('isisssss', $album_id, $audio_path, $duration, $genre, $image_path, $judul, $penyanyi, $tanggal_terbit);
 if (!$mainquery->execute()) {

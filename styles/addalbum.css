@@ -35,3 +35,15 @@ select {
 #img_album {
   padding: 0;
 }
+
+#uploadForm {
+  background-color: var(--light_green);
+  height: 100%;
+  width: 12vw;
+  max-width: 200px;
+  padding: 2%;
+  border-radius: 15px;
+  margin-top: 3%;
+  font-weight: 600;
+  cursor: pointer;
+}

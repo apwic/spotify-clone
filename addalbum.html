@@ -21,7 +21,7 @@
           Add Album
         </div>
         <div class="album-detail">
-          <form action="upload.php" method="post" enctype="multipart/form-data">
+          <form method="post" enctype="multipart/form-data" onsubmit="addAlbum(event)">
             <div class="album-detail-container">
               <label for="img_album">Select Album Cover:</label>
               <input type="file" name="img_album" id="img_album" accept=".png, .jpg, .jpeg"/>
@@ -35,13 +35,14 @@
               <input type="text" name="penyanyi_album" id="penyanyi_album"/>
             </div>
             <div class="album-detail-container">
-              <label for="file_album">Date of Release</label>
-              <input type="text" name="file_album" id="file_album"/>
+              <label for="tanggalterbit_album">Date of Release</label>
+              <input type="text" name="tanggalterbit_album" id="tanggalterbit_album"/>
             </div>
             <div class="album-detail-container">
               <label for="genre_album">Genre</label>
               <input type="text" name="genre_album" id="genre_album"/>
             </div>
+            <input type="submit" value="Submit" id="uploadForm" name="submit"/>
           </form>
         </div>
       </div>
@@ -54,6 +55,7 @@
   <script src="./scripts/components/player.js"></script>
   <script src="./scripts/utils/fetcher.js"></script>
   <script src="./scripts/pages/button.js"></script>
+  <script src="./scripts/pages/addalbum.js"></script>
 </body>
 
 

@@ -19,13 +19,13 @@ const addSong = (e) => {
 
     let img_path = "";
     const coverFile = new FormData();
-    coverFile.append("img_lagu", document.querySelector("#img_lagu").files[0]);
+    coverFile.append("img_file", document.querySelector("#img_lagu").files[0]);
     coverFile.append("type", "cover/song/");
 
     postAPI(
-      "../api/addfile.php",
+      "/api/addfile.php",
       (resp) => {
-        audio_path = callback(resp, audio_path);
+        audio_path = callback(resp);
         addImage(coverFile, audio_path, img_path);
       },
       songFile
@@ -39,7 +39,7 @@ const addSong = (e) => {
 
 const addImage = (coverFile, audio_path, img_path) => {
   postAPI(
-    "../api/addfile.php",
+    "/api/addfile.php",
     (resp) => {
       img_path = callback(resp);
       postSong(img_path, audio_path);
@@ -49,16 +49,10 @@ const addImage = (coverFile, audio_path, img_path) => {
 };
 
 const postSong = (img_path, audio_path) => {
-  for (let i = 0; i < values.length; i++) {
-    if (!document.querySelector(`#${values[i]}`).value) {
-      return false;
-    }
-  }
   const songDetail = populateData();
   songDetail.append("audio_path", audio_path);
   songDetail.append("image_path", img_path);
   songDetail.append("duration", 234);
-  populateData(songDetail);
 
   postAPI("/api/song/addsong.php", callbackAdded, songDetail);
   return;
