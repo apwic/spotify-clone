@@ -40,7 +40,7 @@ form {
 }
 
 .input-style {
-    border: none;
+    border: 3px solid white;
     border-radius: 7.5px;
     height: 45px;
     width: 350px;
@@ -61,4 +61,12 @@ form {
 a {
     text-decoration: none;
     color: var(--light_green);
+}
+
+.error-message {
+    color: red;
+    font-size: 10px;
+    margin-top: 0px !important;
+    margin-bottom: 3px !important;
+    padding: 0px !important;
 }

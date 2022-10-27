@@ -14,12 +14,16 @@
         <form onsubmit="registered(event)" enctype="multipart/form">
             <div class="form-style">Sign up for free to start listening</div>
             <div class="form-style">Enter your username</div>
-            <input required class="form-style input-style" type="text" id="username" name="username" placeholder="Username" />
+            <div class="error-message"></div>
+            <input required class="form-style input-style" type="text" id="username" name="username" placeholder="Username" oninput="checkUsername(event)" />
             <div class="form-style">What's your email?</div>
-            <input required class="form-style input-style" type="email" id="email" name="email" placeholder="Email" />
+            <div class="error-message"></div>
+            <input required class="form-style input-style" type="email" id="email" name="email" placeholder="Email" oninput="checkEmail(event)" />
             <div class="form-style">Enter your password</div>
+            <div class="error-message"></div>
             <input required class="form-style input-style" type="password" id="password" name="password" placeholder="Password" />
             <div class="form-style">Confirm your password</div>
+            <div class="error-message"></div>
             <input required class="form-style input-style" type="password" id="repassword" name="repassword" placeholder="Password" />
             <button class="form-style button-style" type="submit">Register</button>
             <br />
