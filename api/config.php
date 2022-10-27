@@ -34,7 +34,7 @@ function isUserAlreadyLoggedIn($con) {
     $sessionToken = $headers['sessionToken'];
 
     // check session in database
-    $sqlQuery = $con->prepare('SELECT * FROM `sessions` WHERE `session_id` = ?');
+    $sqlQuery = $con->prepare('SELECT * FROM `SESSIONS` WHERE `session_id` = ?');
     $sqlQuery->bind_param('s', $sessionToken);
     
     // check the query executing
@@ -73,7 +73,7 @@ function isAdmin($con, $userId) {
     }
 
     // get the data
-    $sqlQuery = $con->query('SELECT `isAdmin` FROM `users` WHERE `user_id` = ' . $userId);
+    $sqlQuery = $con->query('SELECT `isAdmin` FROM `USERS` WHERE `user_id` = ' . $userId);
     $rowQueryResult = $sqlQuery->fetch_assoc();
 
     // check the isAdmin column
@@ -83,4 +83,42 @@ function isAdmin($con, $userId) {
 
     // return if user is admin or not
     return $rowQueryResult['isAdmin'] == 1;
+}
+
+// deleting song
+function deleteSong($con, $id) {
+    $query = $con->prepare("SELECT `audio_path`, `image_path` 
+        FROM `SONG` 
+        WHERE `song_id` = ?");
+    $query->bind_param("i", $id);
+    
+    if(!$query->execute()){
+        $result = ["status" => "error", "description" => "unable to find file"];
+        http_response_code(500);
+        exit(json_encode($result));
+    }
+    $target = ($query->get_result()->fetch_assoc());
+    $target_audio = "../." . $target["audio_path"];
+    $target_image = "../." . $target["image_path"];
+    
+    if (file_exists($target_audio) && file_exists($target_image)) {
+        unlink($target_audio);
+        unlink($target_image);
+    } else {
+        $result = ["status" => "error", "description" => "unable to delete img/audio file"];
+        http_response_code(500);
+        exit(json_encode($result));
+    }
+    $query = $con->prepare("DELETE 
+        FROM `SONG` 
+        WHERE `song_id` = ?");
+    $query->bind_param("i", $id);
+    
+    if(!$query->execute()){
+        $result = ["status" => "error", "description" => "unable to delete song"];
+        http_response_code(500);
+        exit(json_encode($result));
+    }
+    $result = ["status" => "success", "description" => "song deleted"];
+    echo json_encode($result);
 }
