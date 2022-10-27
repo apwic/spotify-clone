@@ -14,7 +14,6 @@ const songsLayout = (page) => {
             data-judul="${song.judul}"
             data-penyanyi="${song.penyanyi}"
           >
-        >
         <div class="img-detail">
           <img class="img-search" src="${song.image_path}" alt=""/>
           <div class="detail-song">
