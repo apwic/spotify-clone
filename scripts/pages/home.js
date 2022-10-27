@@ -8,7 +8,13 @@ const songsLayout = (page) => {
             <div id="songs" class="song-list-container">`;
 
       str += songs.map(song =>
-        `<div class="song-list" data-value="${song.song_id}">
+        `<div class="song-list" 
+            data-value="${song.song_id}" 
+            data-image="${song.image_path}"
+            data-audio="${song.audio_path}"
+            data-judul="${song.judul}"
+            data-penyanyi="${song.penyanyi}"
+          >
           <img src="${song.image_path}" alt=""/>
           <label>${song.judul} - ${song.penyanyi} - ${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</label>
         </div>`
