@@ -8,7 +8,7 @@ const albumsLayout = (page) => {
             <div id="albums" class="album-list-container">`;
 
       str += albums.map(album =>
-        `<div class="album-list">
+        `<div class="album-list" data-value="${album.album_id}">
           <img src="${album.image_path}" alt=""/>
           <label>${album.judul} - ${album.penyanyi} - ${album.tanggal_terbit} - ${album.genre}</label>
         </div>`
@@ -34,3 +34,15 @@ const albumsLayout = (page) => {
 }
 
 albumsLayout(1);
+
+const clickAlbumDetail = (id) => {
+  window.location.href = `${window.location.protocol}//${window.location.host}/album.html?id=${id}`;
+}
+
+document.addEventListener("click", function(e) {
+  if (e.target.getAttribute("class") == "album-list") {
+    const id = e.target.getAttribute("data-value");
+    console.log(id);
+    clickAlbumDetail(id);
+  }
+});

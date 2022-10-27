@@ -94,6 +94,19 @@ body {
   display: flex;
   justify-content: left;
   align-items: center;
+  position: relative;
+}
+
+.album-list:hover{
+  cursor: pointer;
+}
+
+.album-list > img {
+  pointer-events: none;
+}
+
+.album-list > label {
+  pointer-events: none;
 }
 
 .page-anchor {

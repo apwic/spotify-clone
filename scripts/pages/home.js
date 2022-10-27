@@ -39,12 +39,6 @@ const clickSongDetail = (id) => {
   window.location.href = `${window.location.protocol}//${window.location.host}/song.html?id=${id}`;
 }
 
-// Array.from(document.getElementsByClassName("song-list")).forEach((el) => {
-//   console.log(el);
-//   el.addEventListener("click", function(e) {
-//   });
-// });
-
 document.addEventListener("click", function(e) {
   if (e.target.getAttribute("class") == "song-list") {
     const id = e.target.getAttribute("data-value");

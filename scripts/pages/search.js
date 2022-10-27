@@ -53,8 +53,8 @@ const searchLayout = (query, filter, sort, page) => {
       str = `<div id="songs" class="song-list-container">`;
 
       str += songs.map(song =>
-        `<div class="song-list">
-          <img src="./assets/image/menu-burger.png"/>
+        `<div class="song-list" data-value="${song.song_id}">
+          <img src="${song.image_path}" alt=""/>
           <label>${song.judul} - ${song.penyanyi} - ${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</label>
         </div>`
       ).join("");
@@ -89,3 +89,15 @@ const searchLayout = (query, filter, sort, page) => {
 }
 
 populateData();
+
+const clickSongDetail = (id) => {
+  window.location.href = `${window.location.protocol}//${window.location.host}/song.html?id=${id}`;
+}
+
+document.addEventListener("click", function(e) {
+  if (e.target.getAttribute("class") == "song-list") {
+    const id = e.target.getAttribute("data-value");
+    console.log(id);
+    clickSongDetail(id);
+  }
+});

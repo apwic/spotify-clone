@@ -24,10 +24,10 @@ if(isset($_GET['q']) && $_GET['q'] != "") {
     }
 
     $query = $con->prepare($prepare_query);
-    $query->bind_param("ssss", $q, $q, $q, $_GET['filter']);
+    $query->bind_param("ssss", $q, $q, $_GET['q'], $_GET['filter']);
   } else {
     $query = $con->prepare($prepare_query);
-    $query->bind_param("sss", $q, $q, $q);
+    $query->bind_param("sss", $q, $q, $_GET['q']);
   }
 
   if(!$query->execute()){
