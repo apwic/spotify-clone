@@ -22,6 +22,8 @@ input {
   min-height: 30px;
   padding: 1% 1.5%;
   font-weight: 400;
+  border: none;
+  border-radius: 7.5px;
 }
 
 select {
@@ -29,6 +31,8 @@ select {
   min-height: 30px;
   width: 45%;
   padding: 0 1.5%;
+  border: none;
+  border-radius: 7.5px;
 }
 
 #file_lagu {

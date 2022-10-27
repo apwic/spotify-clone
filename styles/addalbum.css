@@ -21,6 +21,8 @@ input {
   height: 2.5vw;
   padding: 1% 1.5%;
   font-weight: 400;
+  border: none;
+  border-radius: 7.5px;
 }
 
 select {
@@ -30,6 +32,8 @@ select {
   max-width: 300px;
   padding: 0 1.5%;
   border-radius: 25px;
+  border: none;
+  border-radius: 7.5px;
 }
 
 #img_album {

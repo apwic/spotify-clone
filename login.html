@@ -6,23 +6,24 @@
         <link rel="stylesheet" href="styles/auth.css" />
     </head>
     <body>
-        <header>
-            <image id="logo-image" src="assets/image/logo-good-quality.png" alt="logo" />
-            <div id="title">Sepotipayi</div>
-        </header>
+        <div id="row-1">
+            <div id="header">
+                <image id="logo-image" src="assets/image/logo-good-quality.png" alt="logo" />
+                <div id="title">Sepotipayi</div>
+            </div>
+        </div>
 
-        <form onsubmit="logined(event)" enctype="multipart/form">
-            <br /><br />
-            <div class="form-style">To continue listening for free, log in to Sepotipayi</div>
-            <br /><br />
-            <div class="form-style">Enter your username</div>
-            <input class="form-style input-style" type="text" id="username" name="username" placeholder="Username" />
-            <div class="form-style">Enter your password</div>
-            <input class="form-style input-style" type="password" id="password" name="password" placeholder="Password" />
-            <button class="form-style button-style" type="submit">Log In</button>
-            <br /><br />
-            <div class="form-style">Don't have an account? <a href="register.html">Register for Sepotipayi</a></div>
-        </form>
+        <div id="row-2">
+            <form onsubmit="logined(event)" enctype="multipart/form">
+                <div class="form-style space-top">To continue listening for free, log in to Sepotipayi</div>
+                <div class="form-style space-top">Enter your username</div>
+                <input class="form-style input-style" type="text" id="username" name="username" placeholder="Username" />
+                <div class="form-style">Enter your password</div>
+                <input class="form-style input-style" type="password" id="password" name="password" placeholder="Password" />
+                <button class="form-style button-style space-button" type="submit">Log In</button>
+                <div class="form-style space-top">Don't have an account? <a href="register.html">Register for Sepotipayi</a></div>
+            </form>
+        </div>
         
         <script src="scripts/authentication/handleCookie.js"></script>
         <script src="scripts/utils/fetcher.js"></script>

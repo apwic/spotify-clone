@@ -28,23 +28,23 @@
           <form enctype="multipart/form-data" method="post" onsubmit="addSong(event)">
             <div class="song-detail-container">
               <label for="file_lagu">Select Song to Add</label>
-              <input type="file" name="file_lagu" id="file_lagu" accept=".mp3"/>
+              <input required type="file" name="file_lagu" id="file_lagu" accept=".mp3"/>
             </div>
             <div class="song-detail-container">
               <label for="judul_lagu">Song Title</label>
-              <input type="text" name="judul_lagu" id="judul_lagu"/>
+              <input required type="text" name="judul_lagu" id="judul_lagu"/>
             </div>
             <div class="song-detail-container">
               <label for="tanggalterbit_lagu">Date of Release</label>
-              <input type="text" name="tanggalterbit_lagu" id="tanggalterbit_lagu" placeholder="YYYY-MM-DD"/>
+              <input required type="text" name="tanggalterbit_lagu" id="tanggalterbit_lagu" placeholder="YYYY-MM-DD"/>
             </div>
             <div class="song-detail-container">
               <label for="genre_lagu">Genre</label>
-              <input type="text" name="genre_lagu" id="genre_lagu"/>
+              <input required type="text" name="genre_lagu" id="genre_lagu"/>
             </div>
             <div class="song-detail-container">
               <label for="img_lagu">Upload Cover</label>
-              <input type="file" name="img_lagu" id="img_lagu" accept=".png, .jpg, .jpeg"/>
+              <input required type="file" name="img_lagu" id="img_lagu" accept=".png, .jpg, .jpeg"/>
             </div>
             <div class="song-detail-container">
               <label for="album_lagu">Choose Album</label>

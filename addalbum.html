@@ -28,23 +28,23 @@
           <form method="post" enctype="multipart/form-data" onsubmit="addAlbum(event)">
             <div class="album-detail-container">
               <label for="img_album">Select Album Cover:</label>
-              <input type="file" name="img_album" id="img_album" accept=".png, .jpg, .jpeg"/>
+              <input required type="file" name="img_album" id="img_album" accept=".png, .jpg, .jpeg"/>
             </div>
             <div class="album-detail-container">
               <label for="judul_album">Album Title</label>
-              <input type="text" name="judul_album" id="judul_album"/>
+              <input required type="text" name="judul_album" id="judul_album"/>
             </div>
             <div class="album-detail-container">
               <label for="penyanyi_album">Artist Name</label>
-              <input type="text" name="penyanyi_album" id="penyanyi_album"/>
+              <input required type="text" name="penyanyi_album" id="penyanyi_album"/>
             </div>
             <div class="album-detail-container">
               <label for="tanggalterbit_album">Date of Release</label>
-              <input type="text" name="tanggalterbit_album" id="tanggalterbit_album"/>
+              <input required type="text" name="tanggalterbit_album" id="tanggalterbit_album"/>
             </div>
             <div class="album-detail-container">
               <label for="genre_album">Genre</label>
-              <input type="text" name="genre_album" id="genre_album"/>
+              <input required type="text" name="genre_album" id="genre_album"/>
             </div>
             <input type="submit" value="Submit" id="uploadForm" name="submit"/>
           </form>
