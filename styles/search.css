@@ -1,26 +1,75 @@
 .search-bar-container {
-  width: 100%;
+  width: 70%;
   height: 10%;
 }
 
 .search-bar-container > form {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
-  position: absolute;
-  width: 90%;
-  gap: 5%;
-  z-index: 3;
+  flex-direction: column;
+  margin-top: .5%;
 }
 
 .search-bar {
-  float: left;
+  /* float: left;
   height: 100%;
-  width: 25%;
+  width: 25%; */
+  width: 100%;
+  margin-bottom: 1%;
 }
 
-.song-list > img {
-  margin-right: 5%;
-  height: 2.25vh;
-  width: 2.25vh;
+#search-input {
+  width: 80%;
+  padding: 2%;
+  border: none;
+  border-radius: 15px;
+  margin-right: 1%;
+}
+
+#submit-search {
+  width: 15%;
+  padding: 2%;
+  border: none;
+  border-radius: 15px;
+  background-color: #1db954;
+  color: black;
+  font-weight: bold;
+}
+
+.label {
+  margin-left: 2%;
+}
+
+label {
+  margin-left: 2%;
+  margin-right: 2%
+}
+
+select {
+  width: 20%;
+  padding: 1%;
+  border: none;
+  border-radius: 15px;
+}
+
+.img-detail {
+  width: 100%;
+  margin-left: 2%;
+  display: flex;
+  align-items: left;
+}
+
+.img-search {
+  margin-right: 3%;
+  height: 4.5vh;
+  width: 4.5vh;
+}
+
+.detail-song {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
 }

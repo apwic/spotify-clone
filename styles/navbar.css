@@ -89,7 +89,7 @@ hr {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 2%;
+  margin: .5% .5% 0% 0%;
   z-index: 2;
   width: 100%;
   text-align: right;

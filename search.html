@@ -27,8 +27,8 @@
       <div class="search-bar-container">
         <form>
           <div class="search-bar">
-            <input type="text" name="query" placeholder="What do you want to listen to?"/>
-            <input type="button" onclick="searchLayout(this.form.query.value, this.form.genre.value, this.form.sort.value, 1)" value="search"/>
+            <input id="search-input" type="text" name="query" placeholder="What do you want to listen to?"/>
+            <input id="submit-search" type="button" onclick="searchLayout(this.form.query.value, this.form.genre.value, this.form.sort.value, 1)" value="Search"/>
           </div>
           <div class="search-bar">
             <label for="sort">Sort by</label>
@@ -36,11 +36,9 @@
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
             </select>
-          </div>
-          <div class="search-bar">
             <label for="genre">Genre</label>
             <select name="genre" id="genre">
-              <option value="" disabled selected>Genres...</option>
+              <option value="" disabled selected>Genres</option>
           </div>
         </form>
       </div>

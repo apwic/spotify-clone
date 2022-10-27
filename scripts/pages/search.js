@@ -30,8 +30,8 @@ const searchLayout = (query, filter, sort, page) => {
       <div class="search-bar-container">
         <form>
           <div class="search-bar">
-            <input type="text" name="query" placeholder="What do you want to listen to?"/>
-            <input type="button" onclick="searchLayout(this.form.query.value, this.form.genre.value, this.form.sort.value, 1)" value="search"/>
+            <input id="search-input" type="text" name="query" placeholder="What do you want to listen to?"/>
+            <input id="submit-search" type="button" onclick="searchLayout(this.form.query.value, this.form.genre.value, this.form.sort.value, 1)" value="Search"/>
           </div>
           <div class="search-bar">
             <label for="sort">Sort by</label>
@@ -39,11 +39,9 @@ const searchLayout = (query, filter, sort, page) => {
               <option value="asc">Ascending</option>
               <option value="desc">Descending</option>
             </select>
-          </div>
-          <div class="search-bar">
             <label for="genre">Genre</label>
             <select name="genre" id="genre">
-              <option value="" disabled selected>Genres...</option>
+              <option value="" disabled selected>Genres</option>
           </div>
         </form>
       </div>`;
@@ -54,8 +52,14 @@ const searchLayout = (query, filter, sort, page) => {
 
       str += songs.map(song =>
         `<div class="song-list" data-value="${song.song_id}">
-          <img src="${song.image_path}" alt=""/>
-          <label>${song.judul} - ${song.penyanyi} - ${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</label>
+          <div class="img-detail">
+            <img class="img-search" src="${song.image_path}" alt=""/>
+            <div class="detail-song">
+              <label>${song.judul}</label>
+              <label>${song.penyanyi}</label>
+            </div>
+          </div>
+          <label class="label">${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</label>
         </div>`
       ).join("");
   
