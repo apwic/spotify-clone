@@ -8,7 +8,7 @@ const getAPI = (endpoint, callback, data) => {
             callback(this.responseText);
         } else {
             // TODO: handling different types of error
-            alert(this.responseText);
+            console.log(this.responseText);
         }
   };
 
@@ -33,7 +33,7 @@ const postAPI = (endpoint, callback, data) => {
             callback(this.responseText);
         } else {
             // TODO: handling different types of error
-            alert(this.responseText);
+            console.log(this.responseText);
         }
     };
     

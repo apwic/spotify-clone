@@ -32,10 +32,6 @@ const navbarLayout = (role, loginStatus) => {
               <img src="./assets/image/menu-burger.png"/>
               <div>Album List</div>
             </div>
-            <div class="feature-group" onClick="goToTest()">
-              <img src="./assets/image/test.png"/>
-              <div>Test API</div>
-            </div>
             <br/>
         ${
           role === "admin"
@@ -88,10 +84,6 @@ goToSearch = () => {
 const goToHome = () => {
   window.location.href = `${window.location.protocol}//${window.location.host}`;
 };
-
-const goToTest = () => {
-  window.location.href = `${window.location.protocol}//${window.location.host}/test.html`;
-}
 
 const goToAlbumList = () => {
   window.location.href = `${window.location.protocol}//${window.location.host}/albumlist.html`;

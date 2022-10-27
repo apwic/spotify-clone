@@ -122,3 +122,15 @@ function deleteSong($con, $id) {
     $result = ["status" => "success", "description" => "song deleted"];
     echo json_encode($result);
 }
+
+// delete song file
+function deleteFile($path){
+  $target = "./." . $path;
+  if (file_exists($target)) {
+    unlink($target);
+  } else {
+    $result = ["status" => "error", "description" => "unable to delete file"];
+    http_response_code(500);
+    exit(json_encode($result));
+  }
+}

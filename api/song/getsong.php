@@ -3,8 +3,8 @@
 require_once '../config.php';
 
 $id = $_GET['id'];
-$query = $con->prepare("SELECT `song_id`, `judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id` 
-                        FROM `SONG` 
+$query = $con->prepare("SELECT `song_id`, `song`.`judul`, `song`.`penyanyi`, `song`.`tanggal_terbit`, `song`.`genre`, `duration`, `audio_path`, `song`.`image_path`, `song`.`album_id`, `album`.`judul` AS `judul_album`
+                        FROM `SONG` INNER JOIN `ALBUM` 
                         WHERE `song_id` = ?");
 $query->bind_param("i", $id);
 
