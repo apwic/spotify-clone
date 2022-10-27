@@ -5,7 +5,7 @@ const populateData = () => {
     const genreSelect = document.getElementById("genre");
     genres.forEach((genre) => {
       const option = document.createElement("option");
-      option.value = genre.id;
+      option.value = genre.genre;
       option.innerHTML = genre.genre;
       genreSelect.appendChild(option);
     });
@@ -13,9 +13,10 @@ const populateData = () => {
 }
 
 const searchLayout = (query, filter, sort, page) => {
+  console.log(query, filter, sort, page);
   if (page > 0) {
     let apiCall;
-    if (filter == "0"){
+    if (filter == ""){
       apiCall = `./api/search.php?q=${query}&sort=${sort}&page=${page}`;
     } else {
       apiCall = `./api/search.php?q=${query}&filter=${filter}&sort=${sort}&page=${page}`;
@@ -83,6 +84,7 @@ const searchLayout = (query, filter, sort, page) => {
       }
     });
 
+    populateData();
   }
 }
 
