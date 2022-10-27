@@ -19,7 +19,7 @@
   margin-top: 5%;
   margin-bottom: 5%;
   width: 92%;
-  height: 35%;
+  height: 20vh;
 }
 
 .song-detail-container {
@@ -27,7 +27,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 3vh;
+  height:   1.5vh;
 }
 
 .song-list-container {
@@ -46,14 +46,35 @@ label {
   margin-right: 5%;
 }
 
+input {
+  width: 45%;
+  height: 1vw;
+  min-height: 30px;
+  padding: 1% 1.5%;
+  font-weight: 400;
+}
+
+select {
+  height: 2.5vw;
+  min-height: 30px;
+  width: 45%;
+  padding: 0 1.5%;
+}
+
 #image_path > img {
   height: 3vh;
   width: 3vh;
   margin-right: 5%;
 }
 
-audio {
-  height: 3vh;
-  width: 50%;
-  margin-right: 5%;
+#uploadForm {
+  background-color: var(--light_green);
+  height: 100%;
+  width: 12vw;
+  max-width: 200px;
+  padding: 2%;
+  border-radius: 15px;
+  margin-top: 3%;
+  font-weight: 600;
+  cursor: pointer;
 }

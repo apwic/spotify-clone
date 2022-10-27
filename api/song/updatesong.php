@@ -3,7 +3,7 @@ require_once '../config.php';
 
 // set the default values from data input
 $audio_path = $_POST['audio_path'];
-$duration = $_POST['duration'];
+$duration = intval($_POST['duration']);
 $genre = $_POST['genre_lagu'];
 $image_path = $_POST['image_path'];
 $judul = $_POST['judul_lagu'];
@@ -20,7 +20,7 @@ if(!$query->execute()){
   http_response_code(500);
   exit(json_encode($result));
 }
-$current_duration = ($query->get_result()->fetch_assoc())["total_duration"] + intval($duration);
+$current_duration = ($query->get_result()->fetch_assoc())["total_duration"] + $duration;
 
 // update album's total duration
 $query = $con->prepare("UPDATE `ALBUM`
@@ -39,7 +39,7 @@ $mainquery = $con->prepare('UPDATE `SONG`
                             WHERE `song_id` = ?');
 $mainquery->bind_param('isissssi', $album_id, $audio_path, $duration, $genre, $image_path, $judul, $tanggal_terbit, $_POST['song_id']);
 
-if (!$mainquery->execute()) {
+if (!$mainquery->execute()) { 
     $result = ["status" => "error", "description" => $con->error];
     http_response_code(500);
     exit(json_encode($result));

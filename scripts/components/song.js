@@ -16,7 +16,7 @@ const updateSong = (e) => {
   const songDetail = populateData();
   if (document.querySelector("#file_lagu").files[0]) {
     audio_path = ""
-  const songFile = new FormData();
+    const songFile = new FormData();
     songFile.append("file_lagu", document.querySelector("#file_lagu").files[0]);
     songFile.append("type", "song");
 
@@ -49,8 +49,8 @@ const updateSong = (e) => {
                     if (data.status === "success") {
                       deleteFile(old_audio_path);
                       deleteFile(old_image_path);
+                      window.location.reload();
                     }
-                    window.location.reload();
                   }, songDetail
                 );
               },
@@ -70,14 +70,15 @@ const updateSong = (e) => {
             songDetail.append("audio_path", audio_path);
             songDetail.append("image_path", image_path);
             songDetail.append("duration", audio_duration);
+            console.log(audio_duration);
 
             postAPI(
               `./api/song/updatesong.php`, (resp) => {
                 const data = JSON.parse(resp);
                 if (data.status === "success") {
                   deleteFile(old_audio_path);
+                  window.location.reload();
                 }
-                window.location.reload();
               }, songDetail
             );
           };
@@ -104,8 +105,8 @@ const updateSong = (e) => {
               const data = JSON.parse(resp);
               if (data.status === "success") {
                 deleteFile(old_image_path);
+                window.location.reload();
               }
-              window.location.reload();
             }, songDetail
           );
         },
@@ -118,7 +119,9 @@ const updateSong = (e) => {
       postAPI(
         `./api/song/updatesong.php`, (resp) => {
           const data = JSON.parse(resp);
-          window.location.reload();
+          if (data.status === "success") {
+            window.location.reload();
+          }
         }, songDetail
       );
     }
@@ -181,7 +184,7 @@ const songLayout = (role) => {
       const song = jsonData.payload;
       if (role === "admin"){
         document.getElementById("song-detail").innerHTML = `
-        <form enctype="multipart/form-data" method="put" onsubmit="updateSong(event)">
+        <form enctype="multipart/form-data" method="post" onsubmit="updateSong(event)">
           <div class="song-detail-container" id="judul">
             <label>Judul</label>
             <input type="text" id="judul_lagu" name="judul" placeholder="${song.judul}" value="${song.judul}" required/>
