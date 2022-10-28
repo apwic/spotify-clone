@@ -41,7 +41,36 @@ document.addEventListener("click", function(e) {
 });
 
 const playSong = (song_img, song_path, song_title, song_artist) => {
-    console.log(song_img, song_path, song_title, song_artist);
+    getAPI('/api/authentication/userdata.php', (data) => {
+        const userdata = JSON.parse(data);
+        console.log(userdata);
+        if (userdata.hasOwnProperty('status') && userdata['status'] === 'error') {
+            const ls = window.localStorage;
+            const limit = JSON.parse(ls.getItem("user"));
+            const today = new Date();
+            let date = `${today.getFullYear()}${today.getMonth()}${today.getDate()}`
+            
+            if (limit) {
+                if (limit.amount === 3 && limit.date === date) {
+                    alert("Today's max limit reached. Log in for unlimited streams or come back tomorrow!");
+                } else {
+                    let amount = 0;
+                    if (limit.date === date) {
+                        amount = limit.amount + 1;
+                    }
+                    ls.setItem("user", JSON.stringify({amount: amount, date: date}));
+                    setPlayer(song_img, song_path, song_title, song_artist);
+                }
+            } else {
+                const amount = 1;
+                ls.setItem("user", JSON.stringify({amount: amount, date: date}));
+                setPlayer(song_img, song_path, song_title, song_artist);
+            }
+        }
+    });
+}
+
+const setPlayer = (song_img, song_path, song_title, song_artist) => {
     document.getElementById("song-img").setAttribute("src", song_img);
     document.getElementById("song-path").setAttribute("src", song_path);
     document.getElementById("song-title").innerHTML = song_title;
