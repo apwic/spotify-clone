@@ -10,7 +10,7 @@ if ($userID == -1) {
 }
 
 // get user data
-$sqlQuery = $con->query('SELECT * FROM `USERS` WHERE `user_id` = ' . $userID);
+$sqlQuery = $con->query('SELECT * FROM `users` WHERE `user_id` = ' . $userID);
 
 $dataUser = $sqlQuery->fetch_assoc();
 $result = ["status" => "success", "description" => "Get user data", "dataUser" => $dataUser];

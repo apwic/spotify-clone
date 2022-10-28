@@ -13,7 +13,7 @@ if (!isset($_POST['username'])) {
     $password = $_POST['password'];
 
     // check and validate the username
-    $sqlQuery = $con->prepare('SELECT * FROM `USERS` WHERE `username` = ?');
+    $sqlQuery = $con->prepare('SELECT * FROM `users` WHERE `username` = ?');
     $sqlQuery->bind_param('s', $username);
 
     // this code to check response code for debugging
@@ -53,7 +53,7 @@ if (!isset($_POST['username'])) {
     $sessionHash = hash('sha256', $userID . $expTime);
 
     // insert the session to sessions column
-    $sqlQuery = $con->prepare('INSERT INTO `SESSIONS` (`session_id`, `user_id`, `exp`) VALUES (?, ?, ?)');
+    $sqlQuery = $con->prepare('INSERT INTO `sessions` (`session_id`, `user_id`, `exp`) VALUES (?, ?, ?)');
     $sqlQuery->bind_param('sis', $sessionHash, $userID, $setDate);
 
     // this code to check response code for debugging

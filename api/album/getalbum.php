@@ -4,7 +4,7 @@ require_once '../config.php';
 
 $id = $_GET['id'];
 $query = $con->prepare("SELECT `album_id`, `judul`, `penyanyi`, `total_duration`, `image_path`, `tanggal_terbit`, `genre` 
-                        FROM `ALBUM` 
+                        FROM `album` 
                         WHERE `album_id` = ?");
 $query->bind_param("i", $id);
 

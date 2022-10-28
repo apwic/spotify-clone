@@ -39,4 +39,4 @@ VALUES ('bad dreams', 'JANNABI', '2022-10-24', 'RnB', '292', 'test', 'test', 1);
 INSERT INTO song (judul, penyanyi, tanggal_terbit, genre, duration, audio_path, image_path, album_id)
 VALUES ('land of night', 'JANNABI', '2022-10-24', 'RnB', '246', 'test', 'test', 1);
 
-INSERT INTO ALBUM (genre, image_path, judul, penyanyi, tanggal_terbit, total_duration) VALUES ('RnB', 'test', 'asdf', 'yoyo', '2022-10-24', '24'); 
+INSERT INTO album (genre, image_path, judul, penyanyi, tanggal_terbit, total_duration) VALUES ('RnB', 'test', 'asdf', 'yoyo', '2022-10-24', '24'); 

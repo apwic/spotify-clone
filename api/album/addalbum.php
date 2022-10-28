@@ -10,7 +10,7 @@ $tanggal_terbit = $_POST['tanggalterbit_album'];
 $total_duration = 0;
 
 // insert album to db
-$mainquery = $con->prepare('INSERT INTO `ALBUM` (`genre`, `image_path`, `judul`, `penyanyi`, `tanggal_terbit`, `total_duration`) VALUES (?, ?, ?, ?, ?, ?)');
+$mainquery = $con->prepare('INSERT INTO `album` (`genre`, `image_path`, `judul`, `penyanyi`, `tanggal_terbit`, `total_duration`) VALUES (?, ?, ?, ?, ?, ?)');
 $mainquery->bind_param('sssssi', $genre, $image_path, $judul, $penyanyi, $tanggal_terbit, $total_duration);
 if (!$mainquery->execute()) {
     $result = ["status" => "error", "description" => "query not executed"];

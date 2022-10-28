@@ -11,7 +11,7 @@ foreach ($songs as $song) {
 
 $id = $_POST["id"];
 $query = $con->prepare("SELECT `image_path` 
-    FROM `ALBUM` 
+    FROM `album` 
     WHERE `album_id` = ?");
 $query->bind_param("i", $id);
 
@@ -32,7 +32,7 @@ if (file_exists($target_image)) {
     exit(json_encode($result));
 }
 $query = $con->prepare("DELETE 
-    FROM `ALBUM` 
+    FROM `album` 
     WHERE `album_id` = ?");
 $query->bind_param("i", $id);
 

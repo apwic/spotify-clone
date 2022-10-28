@@ -37,7 +37,7 @@ if (!isset($_POST['username'])) {
     }
 
     // insert the data into users tables
-    $sqlQuery = $con->prepare('INSERT INTO `USERS` (`username`, `email`, `password`, `isAdmin`) VALUES (?, ?, ?, ?)');
+    $sqlQuery = $con->prepare('INSERT INTO `users` (`username`, `email`, `password`, `isAdmin`) VALUES (?, ?, ?, ?)');
     $sqlQuery->bind_param('sssi', $username, $email, $password, $isadmin);
 
     // this code to check response code for debugging
@@ -59,7 +59,7 @@ if (!isset($_POST['username'])) {
     $sessionHash = hash('sha256', $userID . $username);
 
     // insert the session to sessions column
-    $sqlQuery = $con->prepare('INSERT INTO `SESSIONS` (`session_id`, `user_id`, `exp`) VALUES (?, ?, ?)');
+    $sqlQuery = $con->prepare('INSERT INTO `sessions` (`session_id`, `user_id`, `exp`) VALUES (?, ?, ?)');
     $sqlQuery->bind_param('sis', $sessionHash, $userID, $setDate);
 
     // this code to check response code for debugging

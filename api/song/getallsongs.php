@@ -3,10 +3,10 @@
 require_once "../config.php";
 $page_size = constant('PAGE_SIZE');
 
-$query = $con->prepare("SELECT `song_id`, `judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id` 
-                        FROM `SONG`
-                        ORDER BY `judul` ASC");
 
+$query = $con->prepare("SELECT `song_id`, `judul`, `penyanyi`, `tanggal_terbit`, `genre`, `duration`, `audio_path`, `image_path`, `album_id` 
+                        FROM `song`
+                        ORDER BY `judul` ASC");
 if(!$query->execute()){
   $result = ["status" => "error", "description" => $con->error];
   http_response_code(500);
@@ -40,3 +40,4 @@ if (!$payload) {
   $result = ["status" => "success", "description" => "songs retrieved", "payload" => $payload];
   echo json_encode($result);
 }
+?>

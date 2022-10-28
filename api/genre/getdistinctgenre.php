@@ -2,7 +2,7 @@
 
 require_once '../config.php';
 
-$query = $con->prepare("SELECT DISTINCT `genre` FROM `SONG`");
+$query = $con->prepare("SELECT DISTINCT `genre` FROM `song`");
 
 if(!$query->execute()){
   $result = ["status" => "error", "description" => $con->error];

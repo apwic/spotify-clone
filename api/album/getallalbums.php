@@ -2,7 +2,7 @@
 
 require_once '../config.php';
 $query = $con->prepare("SELECT `album_id`, `judul`, `penyanyi`, `total_duration`, `image_path`, `tanggal_terbit`, `genre`
-                        FROM `ALBUM`");
+                        FROM `album`");
 
 if(!$query->execute()){
   $result = ["status" => "error", "description" => $con->error];

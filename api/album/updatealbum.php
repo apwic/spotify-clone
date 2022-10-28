@@ -8,7 +8,7 @@ $penyanyi = $_POST['penyanyi_album'];
 
 // insert album to db
 $mainquery = $con->prepare(
-  'UPDATE `ALBUM` 
+  'UPDATE `album` 
   SET `image_path` = ?, `judul` = ?, `penyanyi` = ?
   WHERE `album_id` = ?'
 );

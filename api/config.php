@@ -9,9 +9,10 @@ define('USER', 'root');
 define('PASS', '');
 define('DBNAME', 'sepotipayi');
 define('PAGE_SIZE', 10);
-define('PAGE_SIZE_ALBUM', 12);
+define('PAGE_SIZE_album', 12);
 
-$con = new mysqli(HOST, USER, PASS, DBNAME);
+// $con = new mysqli(HOST, USER, PASS, DBNAME);
+$con = new mysqli('tubes-1-db', 'root', 'root', 'sepotipayi');
 
 // this code to check response code for debugging
 if ($con->connect_errno) {
@@ -35,7 +36,7 @@ function isUserAlreadyLoggedIn($con) {
     $sessionToken = $headers['sessionToken'];
 
     // check session in database
-    $sqlQuery = $con->prepare('SELECT * FROM `SESSIONS` WHERE `session_id` = ?');
+    $sqlQuery = $con->prepare('SELECT * FROM `sessions` WHERE `session_id` = ?');
     $sqlQuery->bind_param('s', $sessionToken);
     
     // check the query executing
@@ -74,7 +75,7 @@ function isAdmin($con, $userId) {
     }
 
     // get the data
-    $sqlQuery = $con->query('SELECT `isAdmin` FROM `USERS` WHERE `user_id` = ' . $userId);
+    $sqlQuery = $con->query('SELECT `isAdmin` FROM `users` WHERE `user_id` = ' . $userId);
     $rowQueryResult = $sqlQuery->fetch_assoc();
 
     // check the isAdmin column
@@ -89,7 +90,7 @@ function isAdmin($con, $userId) {
 // deleting song
 function deleteSong($con, $id) {
     $query = $con->prepare("SELECT `audio_path`, `image_path` 
-        FROM `SONG` 
+        FROM `song` 
         WHERE `song_id` = ?");
     $query->bind_param("i", $id);
     
@@ -111,7 +112,7 @@ function deleteSong($con, $id) {
         exit(json_encode($result));
     }
     $query = $con->prepare("DELETE 
-        FROM `SONG` 
+        FROM `song` 
         WHERE `song_id` = ?");
     $query->bind_param("i", $id);
     
@@ -135,3 +136,4 @@ function deleteFile($path){
     exit(json_encode($result));
   }
 }
+?>

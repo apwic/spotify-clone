@@ -9,7 +9,7 @@ if (!isset($_POST['email'])) {
 } else {
     $email = $_POST['email'];
     
-    $sqlQuery = $con->prepare("SELECT `email` FROM `USERS` WHERE `email` = ?");
+    $sqlQuery = $con->prepare("SELECT `email` FROM `users` WHERE `email` = ?");
     $sqlQuery->bind_param('s', $email);
     
     if (!$sqlQuery->execute()) {

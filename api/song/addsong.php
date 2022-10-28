@@ -13,7 +13,7 @@ $tanggal_terbit = $_POST['tanggalterbit_lagu'];
 
 // get album's current total duration
 $query = $con->prepare("SELECT `total_duration` 
-                        FROM `ALBUM` 
+                        FROM `album` 
                         WHERE `album_id` = ?");
 $query->bind_param("i", $album_id);
 if(!$query->execute()){
@@ -24,7 +24,7 @@ if(!$query->execute()){
 $current_duration = intval(($query->get_result()->fetch_assoc())["total_duration"] + $duration);
 
 // update album's total duration
-$query = $con->prepare("UPDATE `ALBUM`
+$query = $con->prepare("UPDATE `album`
                         SET `total_duration` = ?
                         WHERE `album_id` = ?");
 $query->bind_param("ii", $current_duration, $album_id);
@@ -35,7 +35,7 @@ if(!$query->execute()) {
 }
 
 // insert song to db
-$mainquery = $con->prepare('INSERT INTO `SONG` (`album_id`, `audio_path`, `duration`, `genre`, `image_path`, `judul`, `penyanyi`, `tanggal_terbit`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
+$mainquery = $con->prepare('INSERT INTO `song` (`album_id`, `audio_path`, `duration`, `genre`, `image_path`, `judul`, `penyanyi`, `tanggal_terbit`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
 $mainquery->bind_param('isisssss', $album_id, $audio_path, $duration, $genre, $image_path, $judul, $penyanyi, $tanggal_terbit);
 if (!$mainquery->execute()) {
     $result = ["status" => "error", "description" => "query not executed"];

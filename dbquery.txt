@@ -1,4 +1,4 @@
-CREATE TABLE ALBUM (
+CREATE TABLE album (
     album_id INT NOT NULL,
     judul CHAR(64) NOT NULL,
     penyanyi CHAR(128) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE ALBUM (
     PRIMARY KEY(album_id)
 );
 
-CREATE TABLE SONG (
+CREATE TABLE song (
     song_id INT NOT NULL,
     judul CHAR(64) NOT NULL,
     penyanyi CHAR(128),
@@ -22,10 +22,10 @@ CREATE TABLE SONG (
     PRIMARY KEY(song_id),
     CONSTRAINT fk_songalbum
     FOREIGN KEY(album_id)
-    REFERENCES ALBUM(album_id)
+    REFERENCES album(album_id)
 );
 
-CREATE TABLE USERS (
+CREATE TABLE users (
     user_id INT NOT NULL,
     email CHAR(255) NOT NULL,
     password CHAR(255) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE USERS (
     PRIMARY KEY(user_id)
 );
 
-CREATE TABLE SESSIONS (
+CREATE TABLE sessions (
 	session_id CHAR(255) NOT NULL,
     user_id INT NOT NULL,
     exp CHAR(255) NOT NULL,

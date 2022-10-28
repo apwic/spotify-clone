@@ -3,9 +3,9 @@
 require_once '../config.php';
 
 $id = $_GET['id'];
-$query = $con->prepare("SELECT `song_id`, `SONG`.`judul`, `SONG`.`penyanyi`, `SONG`.`tanggal_terbit`, `SONG`.`genre`, `duration`, `audio_path`, `SONG`.`image_path`, `SONG`.`album_id`, `ALBUM`.`judul` AS `judul_album`
-                        FROM `SONG` INNER JOIN `ALBUM` 
-                        WHERE `song_id` = ? AND `SONG`.`album_id` = `ALBUM`.`album_id`");
+$query = $con->prepare("SELECT `song_id`, `song`.`judul`, `song`.`penyanyi`, `song`.`tanggal_terbit`, `song`.`genre`, `duration`, `audio_path`, `song`.`image_path`, `song`.`album_id`, `album`.`judul` AS `judul_album`
+                        FROM `song` INNER JOIN `album` 
+                        WHERE `song_id` = ? AND `song`.`album_id` = `album`.`album_id`");
 $query->bind_param("i", $id);
 
 if(!$query->execute()){

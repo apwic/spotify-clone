@@ -1,10 +1,10 @@
 <?php
 
 require_once '../config.php';
-$page_size = constant('PAGE_SIZE_ALBUM');
+$page_size = constant('PAGE_SIZE_album');
 
 $query = $con->prepare("SELECT `album_id`, `judul`, `penyanyi`, `total_duration`, `image_path`, `tanggal_terbit`, `genre`
-                        FROM `ALBUM`
+                        FROM `album`
                         ORDER BY `judul` ASC");
 
 if(!$query->execute()){
