@@ -1,11 +1,92 @@
+.album-list-container {
+  height: 75%;
+  overflow-y: auto;
+  margin-bottom: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5% 0;
+  justify-content: left;
+  gap: 3%;
+  position: relative;
+  align-items: flex-start;
+}
+
+.album-list {
+  background-color: rgba(150, 150, 150, 0.2);
+  border-radius: 15px;
+  padding: 2%;
+  width: 15vw;
+  margin: 5px;
+  aspect-ratio: 3 / 4.5;
+  position: relative;
+}
+
+.album-list:hover{
+  cursor: pointer;
+}
+
 .album-list > img {
-  margin-right: 5%;
-  height: 2.25vh;
-  width: 2.25vh;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
+}
+
+.album-list > label {
+  pointer-events: none;
 }
 
 label {
   font-weight: 500;
   font-size: clamp(0.8rem, 1.5vw, 1rem);
   margin-right: 5%;
+}
+
+.album-title {
+  font-size: clamp(0.6rem, 1.3vw, 1.1rem);
+  font-weight: 600;
+  margin-top: 5%;
+}
+
+.album-artist {
+  font-size: clamp(0.5rem, 1vw, 1.1rem);
+  font-weight: 400;
+}
+
+.album-desc {
+  width: 15vw;
+  display: flex;
+  position: absolute;
+  padding: 0 1.5vw;
+  font-weight: 200;
+  font-size: clamp(0.5rem, 1vw, 1rem);
+  bottom: 5%;
+  left: 0;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+  .album-list-container {
+    display: block;
+    margin-top: 13%;
+  }
+  .album-list {
+    width: 90%;
+    height: 7vh;
+    display: flex;
+    margin-bottom: 3%;
+    align-items: center;
+    gap: 4%;
+  }
+  .album-title {
+    margin: 0;
+    font-weight: 800;
+  }
+  .album-list > img {
+    width: 5vh; 
+    border-radius: 5px;
+  }
+  .album-desc {
+    position: relative;
+    bottom: 0;
+  }
 }

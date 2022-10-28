@@ -3,15 +3,27 @@ const albumsLayout = (page) => {
     getAPI(`./api/album/getalbums.php?page=${page}`, (data) => {
       const jsonData = JSON.parse(data);
       albums = jsonData.payload;
-      str = `<div class="page-title">Album List
-            </div>
-            <div id="albums" class="album-list-container">`;
+      str = `<div class="page-title">Album List</div>
+              <div id="albums" class="album-list-container">`;
 
       str += albums.map(album =>
-        `<div class="album-list" data-value="${album.album_id}">
-          <img src="${album.image_path}" alt=""/>
-          <label>${album.judul} - ${album.penyanyi} - ${album.tanggal_terbit} - ${album.genre}</label>
-        </div>`
+          `<div class="album-list" data-value="${album.album_id}">
+            <img src="${album.image_path}" alt=""/>
+            <div class="album-title">
+              ${album.judul}
+            </div>
+            <div class="album-artist">
+              ${album.penyanyi}
+            </div>
+            <div class="album-desc">
+              <div class="album-date">
+                ${album.tanggal_terbit}
+              </div>
+              <div class="genre">
+                ${album.genre}
+              </div>
+            </div>
+          </div>`
       ).join("");
   
       str += `
