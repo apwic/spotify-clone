@@ -62,6 +62,10 @@ form {
     font-size: clamp(0.5rem, 2.3vw, 1.3rem);
 }
 
+.space-top-username {
+    margin-top: 1%;
+}
+
 .space-top {
     margin-top: 1%;
     margin-bottom: 5%;
