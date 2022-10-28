@@ -29,6 +29,12 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 5px;
+  pointer-events: none;
+  object-fit: cover;
+}
+
+.album-list > div {
+  pointer-events: none;
 }
 
 .album-list > label {

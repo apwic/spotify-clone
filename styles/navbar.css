@@ -54,8 +54,8 @@ hr {
 }
 
 .playlist-name {
-  font-size: clamp(0.6rem, 0.8vw, 1rem);
-  margin-bottom: 2vh;
+  font-size: clamp(0.5rem, 0.8vw, 1rem);
+  margin-bottom: 2.5vh;
   font-weight: 500;
   filter: brightness(0.75);
 }
@@ -108,7 +108,20 @@ hr {
   height: 2.5vh;
   background-size: 100% 100%;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 1%;
+  top: 1vh;
   background-image: url("../assets/image/users.png");
+}
+
+@media only screen and (max-width: 768px) {
+  .feature-group {
+    justify-content: center;
+    margin-top: 5vh;
+  }
+  .navbar-text {
+    display: none;
+  }
+  .section-playlist {
+    border-top: none;
+  }
 }

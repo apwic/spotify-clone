@@ -1,6 +1,8 @@
 .search-bar-container {
   width: 70%;
   height: 10%;
+  position: relative;
+  z-index: 3;
 }
 
 .search-bar-container > form {

@@ -1,11 +1,56 @@
-.song-detail-container > img {
-  height: 25vh;
-  width: 50vh;
+.song-detail-header {
+  width: 110%;
+  height: 40%;
+  margin-top: -5%;
+  margin-left: -5%;
+  padding: 3% 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  background: rgb(201,201,201);
+  background: linear-gradient(180deg, rgba(201,201,201,1) 0%, rgba(138,135,135,1) 35%, rgba(125,124,124,1) 45%, rgba(65,65,65,1) 100%);
+}
+
+.song-img{
+  width: 25vh;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.song-detail-title {
+  width: 100%;
+  text-align: right;
+  padding-left: 10%;
+}
+
+.song-detail-title > strong {
+  font-weight: bold;
+  font-size: clamp(0.8rem, 2.7vw, 2.7rem);
+  margin: 0;
+}
+
+.song-detail-title > p {
+  font-weight: 300;
+  font-size: clamp(0.7rem, 1.5vw, 1.5rem);
+  width: 100%;
+  margin-top: 1%;
+}
+
+.song-play {
+  position: absolute;
+  width: 10vh;
+  aspect-ratio: 1 / 1;
+  right: 7%;
+  bottom: -13%;
+  cursor: pointer;
 }
 
 .song-detail {
-  margin-top: 5%;
-  width: 55%;
+  margin-top: 8%;
+  width: 100%;
+  padding: 5%;
+  padding-top: 3%;
 }
 
 .song-detail-container {
@@ -13,13 +58,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 3vh;
+  gap: 2%;
 }
 
 label {
   font-weight: 500;
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
-  margin-right: 5%;
+  font-size: clamp(0.6rem, 1.35vw, 1.2rem);
+}
+
+.value {
+  font-size: clamp(0.6rem, 1.35vw, 1.2rem);
+  font-weight: 400;
 }
 
 input {
@@ -59,4 +108,32 @@ audio {
   margin-top: 3%;
   font-weight: 600;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .song-detail-header {
+    flex-direction: column;
+  }
+  .song-detail-title {
+    width: auto;
+    text-align: center;
+    padding: 0;
+  }
+  .song-detail {
+    width: 100%;
+    max-height: 50%;
+  }
+  .song-detail-header {
+    position: static;
+  }
+  .page-container {
+    position: relative;
+  }
+  .song-play {
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

@@ -81,6 +81,10 @@ body {
   pointer-events: none;
 }
 
+.song-list > div {
+  pointer-events: none;
+}
+
 .song-list > label {
   pointer-events: none;
 }

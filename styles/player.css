@@ -41,13 +41,13 @@
 .song-cover {
     width: 40%;
     margin: 0 auto;
-    aspect-ratio: 1 / 1;
 }
 
 .song-cover > img {
     width: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 10px;
+    object-fit: cover;
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
 }
 
@@ -137,7 +137,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::before {
     position: absolute;
     content: "";
-    top: 9px;
+    top: 11px;
     left: 0;
     width: var(--seek-before-width);
     height: 3px;

@@ -22,43 +22,43 @@ const navbarLayout = (role, loginStatus) => {
         <div class="section-features">
             <div class="feature-group" onClick="goToHome()">
               <img src="./assets/image/home.png"/>
-              <div>Home</div>
+              <div class="navbar-text">Home</div>
             </div>
             <div class="feature-group" onClick="goToSearch()">
               <img src="./assets/image/search.png"/>
-              <div>Search</div>
+              <div class="navbar-text">Search</div>
             </div>
             <div class="feature-group" onClick="goToAlbumList()">
               <img src="./assets/image/menu-burger.png"/>
-              <div>Album List</div>
+              <div class="navbar-text">Album List</div>
             </div>
             <br/>
         ${
           role === "admin"
             ? `<div class="feature-group" onClick="goToAddSong()">
               <img src="./assets/image/music-file.png"/>
-              <div>Add Song</div>
+              <div class="navbar-text">Add Song</div>
             </div>
             <div class="feature-group" onClick="goToAddAlbum()">
               <img src="./assets/image/folder-download.png"/>
-              <div>Add Album</div>
+              <div class="navbar-text">Add Album</div>
             </div>`
             : ``
         }
             <div class="feature-group" onClick="logout()">
               <img src="./assets/image/exit.png"/>
-              <div>${loginStatus === true ? "Log Out" : "Log In"}</div>
+              <div class="navbar-text">${loginStatus === true ? "Log Out" : "Log In"}</div>
             </div>
           </div>
-          <div class="section-playlist" onClick="alert('lala kebo')">
-            <div class="playlist-name">
-              Lala kebo
+          <div class="section-playlist">
+            <div class="playlist-name navbar-text" onClick="alert('13520044 - Adiyansa Prasetya Wicaksana')">
+              playlist pargoy anca
             </div>
-            <div class="playlist-name" onClick="alert('indo galau')">
-              indo galau
+            <div class="playlist-name navbar-text" onClick="alert('13520083 - Sarah Azka Arief')">
+              sarah bertilawah <3
             </div>
-            <div class="playlist-name" onClick="alert('dangdut terbaik')">
-              dandut terbaik
+            <div class="playlist-name navbar-text" onClick="alert('13520107 - Azka Syauqy Irsyad')">
+              cepmek brsama azka
             </div>
           </div>
         </div>

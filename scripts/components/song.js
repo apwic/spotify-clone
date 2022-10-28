@@ -228,42 +228,46 @@ const songLayout = (role) => {
         </form>
         `;
       } else {
-        document.getElementById("song-detail").innerHTML = `
-        <form enctype="multipart/form-data">
-          <div class="song-detail-container" id="judul">
-            <label>Judul</label>
-            <label>${song.judul}</label>
+        document.getElementById("page").innerHTML = `<div class="song-detail-header">
+          <img class="song-img" src="${song.image_path}" alt=""/>
+          <div class="song-detail-title">
+            <strong>${song.judul}</strong>
+            <p>Song Detail</p>
           </div>
-          <div class="song-detail-container" id="penyanyi">
-            <label>Penyanyi</label>
-            <label>${song.penyanyi}</label>
-          </div>
-          <div class="song-detail-container" id="tanggal_terbit">
-            <label>Tanggal Terbit</label>
-            <label>${song.tanggal_terbit}</label>
-          </div>
-          <div class="song-detail-container" id="duration">
-            <label>Duration</label>
-            <label>${song.duration}</label>
-          </div>
-          <div class="song-detail-container" id="audio_path">
-            <label>Audio Path</label>
-            <audio controls><source src="${song.audio_path}" type="audio/mpeg"></audio>
-          </div>
-          <div class="song-detail-container" id="image_path">
-            <label>Image Path</label>
-            <img src="${song.image_path}" alt=""/>
-          </div>
-          <div class="song-detail-container" id="genre">
-            <label>Genre</label>
-            <label>${song.genre}</label>
-          </div>
-          <div class="song-detail-container" id="album_name">
-            <label>Judul Album</label>
-            <label>${song.judul_album}</label>
-          </div>
-        </form>
-        `;
+          <img 
+            class="song-play play-song-button"
+            data-image="${song.image_path}"
+            data-audio="${song.audio_path}"
+            data-judul="${song.judul}"
+            data-penyanyi="${song.penyanyi}"
+            src="./assets/image/play-btn-black.png" 
+          alt=""/>
+        </div>
+        <div class="song-detail" id="song-detail">
+          <form enctype="multipart/form-data">
+            <div class="song-detail-container" id="penyanyi">
+              <label>Artist</label>
+              <div class="value">${song.penyanyi}</div>
+            </div>
+            <div class="song-detail-container" id="tanggal_terbit">
+              <label>Tanggal Terbit</label>
+              <div class="value">${song.tanggal_terbit}</div>
+            </div>
+            <div class="song-detail-container" id="duration">
+              <label>Duration</label>
+              <div class="value">${song.duration}</div>
+            </div>
+            <div class="song-detail-container" id="genre">
+              <label>Genre</label>
+              <div class="value">${song.genre}</div>
+            </div>
+            <div class="song-detail-container" id="album_name">
+              <label>Album</label>
+              <div class="value">${song.judul_album}</div>
+            </div>
+          </form
+        </div>
+      </div>`;
       }
       populateAlbum();
     },

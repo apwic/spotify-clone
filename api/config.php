@@ -9,6 +9,7 @@ define('USER', 'root');
 define('PASS', '');
 define('DBNAME', 'sepotipayi');
 define('PAGE_SIZE', 10);
+define('PAGE_SIZE_ALBUM', 12);
 
 $con = new mysqli(HOST, USER, PASS, DBNAME);
 
