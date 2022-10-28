@@ -1,21 +1,100 @@
-## Panduan Pengerjaan
-Berikut adalah hal yang harus diperhatikan untuk pengumpulan tugas ini:
-1. Buatlah grup pada Gitlab dengan format "IF3110-2022-KXX-01-YY", dengan XX adalah nomor kelas dan YY adalah nomor kelompok.
-2. Tambahkan anggota tim pada grup anda.
-3. **Fork** pada repository ini dengan organisasi yang telah dibuat.
-4. Ubah hak akses repository hasil Fork anda menjadi **private**.
-5. Hal-hal yang harus diperhatikan.
-    * Silakan commit pada repository anda (hasil fork)
-    * Lakukan beberapa commit dengan pesan yang bermakna, contoh: “add register form”, “fix logout bug”, jangan seperti “final”, “benerin dikit”, “fix bug”.
-    * Disarankan untuk tidak melakukan commit dengan perubahan yang besar karena akan mempengaruhi penilaian (contoh: hanya melakukan satu commit kemudian dikumpulkan).
-    * Sebaiknya commit dilakukan setiap ada penambahan fitur.
-    * Commit dari setiap anggota tim akan mempengaruhi penilaian.
-    * Jadi, setiap anggota tim harus melakukan commit yang berpengaruh terhadap proses pembuatan aplikasi.
-    * Sebagai panduan bisa mengikuti [semantic commit](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716).
-6. Buatlah file README yang berisi:
-    * Deskripsi aplikasi web
-    * Daftar requirement
-    * Cara instalasi
-    * Cara menjalankan server
-    * Screenshot tampilan aplikasi (tidak perlu semua kasus, minimal 1 per halaman), dan 
-    * Penjelasan mengenai pembagian tugas masing-masing anggota (lihat formatnya pada bagian pembagian tugas).
+# Milestone 1 IF3110 Pengembangan Aplikasi Berbasis Web
+
+## Deskripsi Aplikasi Web
+
+Aplikasi ini dibuat semacam clonning dari aplikasi Spotify, dimana penggunanya dapat mendengarkan lagu-lagu yang ada di dalam aplikasi. Aplikasi ini dibuat dengan menggunakan bahasa pemrograman Vanilla PHP, Vanilla JavaScript, HTML, CSS, dan MySQL.
+
+## Daftar Requirement
+
+1. Pengguna dapat melakukan login, register, dan logout
+2. Admin dapat melakukan pengelolaan lagu serta album
+3. Pengguna dapat melihat daftar lagu secara pagination dan memutarnya
+4. Pengguna dapat melakukan search dan menerapkan filter maupun sort pada pencarian yang dilakukan
+5. Pengguna dapat melihat daftar album, detail album, dan melihat lagu yang ada di dalam album tersebut serta detail dari lagu tersebut
+6. Terdapat navigation bar pada setiap page
+7. Admin dapat melihat daftar user yang terdaftar pada aplikasi
+8. Admin dapat membuat, menghapus, dan mengubah lagu serta album yang ada di aplikasi
+
+## Cara Instalasi
+
+- Install XAMPP [di sini](https://www.apachefriends.org/index.html)
+- Install Docker [di sini](https://docs.docker.com/engine/install/)
+
+## Cara Menjalankan Server
+
+1. Buka folder `docker` pada terminal
+2. Pastikan docker desktop sudah dijalankan
+3. Jalankan perintah `docker build -t tubes-1 . --no-cache`
+4. Setelah selesai dieksekusi, jalankan perintah `docker-compose up`
+5. Buka browser dan ketikkan `localhost:8008` pada address bar untuk melihat web yang dibuat
+
+> Untuk melihat daftar port pada docker, jalankan perintah dapat dilihat pada aplikasi docker desktop sesuai dengan container yang dijalankan
+
+## Screen Shot
+
+### Login
+
+![](screenshot/login.png)
+
+### Register
+![](screenshot/register.png)
+
+### Home
+![](screenshot/home.png)
+
+### Search
+![](screenshot/search.png)
+
+### Album List
+![](screenshot/albumlist.jpg)
+
+### Album Detail
+![](screenshot/albumdetail.jpg)
+
+### Album Detail (Admin)
+![](screenshot/albumdetailadmin.jpg)
+
+### Add Album
+![](screenshot/addalbum.png)
+
+### Song Detail 
+![](screenshot/songdetail.png)
+
+### Song Detail (Admin)
+![](screenshot/songdetailadmin.png)
+
+### Add Song
+![](screenshot/addsong.png)
+
+### Player
+![](screenshot/player.png)
+
+
+### User List (Admin)
+![](screenshot/userlist.png)
+
+## Pembagian Tugas
+
+### FrontEnd
+- Login: 13520083, 13520107
+- Register: 13520083, 13520107
+- Home: 13520044, 13520083, 13520107
+- Search: 13520044, 13520107
+- Album list: 13520083
+- Album detail: 13520044, 13520107
+- Song detail: 13520044, 13520083
+- Add song: 13520083, 13520107
+- Add album: 13520083, 13520107
+- User list: 13520107
+- Navbar: 13520044, 13520083, 13520107
+- Player: 13520083
+- Responsive: 13520083, 13520107
+
+### BackEnd
+- Configuration: 13520044, 13520107
+- Authentication: 13520107
+- Album: 13520044, 13520083
+- Song: 13520044, 13520083
+- User list: 13520107
+- Search: 13520044
+- Pagination: 13520044
