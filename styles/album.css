@@ -1,6 +1,8 @@
 .song-detail {
-  margin-top: 5%;
-  width: 55%;
+  width: 70%;
+  padding-top: 5vh;
+  padding-right: 5%;
+  position: relative;
 }
 
 .song-detail-container {
@@ -33,38 +35,6 @@ input {
   height: 3vh;
   width: 3vh;
   margin-right: 5%;
-}
-
-.submit-delete {
-  margin-bottom: 5%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#uploadForm {
-  background-color: var(--light_green);
-  height: 100%;
-  width: 12vw;
-  max-width: 200px;
-  padding: 2%;
-  border-radius: 15px;
-  margin-top: 3%;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.delete-song {
-  background-color: red;
-  height: 100%;
-  width: 12vw;
-  max-width: 200px;
-  padding: 2%;
-  border: none;
-  border-radius: 15px;
-  margin-top: 3%;
-  font-weight: 600;
-  cursor: pointer;
 }
 
 .song-list-container {

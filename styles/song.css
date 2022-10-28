@@ -50,7 +50,8 @@
   margin-top: 8%;
   width: 100%;
   padding: 5%;
-  padding-top: 3%;
+  padding-top: 4vh;
+  position: relative;
 }
 
 .song-detail-container {
@@ -73,10 +74,14 @@ label {
 
 input {
   width: 45%;
-  height: 2.5vw;
+  height: 2vw;
   min-height: 30px;
-  padding: 1% 1.5%;
   font-weight: 400;
+  font-size: clamp(0.6rem, 1.35vw, 1.2rem);
+}
+
+input[type="text"] {
+  padding: 1% 1.5%;
 }
 
 select {
@@ -84,6 +89,7 @@ select {
   min-height: 30px;
   width: 45%;
   padding: 0 1.5%;
+  font-size: clamp(0.6rem, 1.35vw, 1.2rem);
 }
 
 #image_path > img {
@@ -98,21 +104,17 @@ audio {
   margin-right: 5%;
 }
 
-#uploadForm {
-  background-color: var(--light_green);
-  height: 100%;
-  width: 12vw;
-  max-width: 200px;
-  padding: 2%;
-  border-radius: 15px;
-  margin-top: 3%;
-  font-weight: 600;
-  cursor: pointer;
+.view-scroll {
+  height: 50%;
+  overflow-y: auto;
 }
 
 @media only screen and (max-width: 768px) {
   .song-detail-header {
     flex-direction: column;
+  }
+  .view-scroll {
+    height: 30%;
   }
   .song-detail-title {
     width: auto;

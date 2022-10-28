@@ -89,6 +89,53 @@ body {
   pointer-events: none;
 }
 
+.submit-delete {
+  margin-top: 1%;
+  margin-bottom: 5%;
+  height: 4vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#uploadForm {
+  width: 15%;
+  max-width: 200px;
+  display: inline-block;
+  font-size: clamp(0.6rem, 1vw, 1rem);
+  background-color: var(--light_green);
+  height: 100%;
+  padding: 1vh;
+  border: none;
+  border-radius: 15px;
+  margin-top: 3%;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.delete-song {
+  width: 15%;
+  max-width: 200px;
+  display: inline-block;
+  font-size: clamp(0.6rem, 1vw, 1rem);
+  background-color: red;
+  height: 100%;
+  padding: 1vh;
+  border: none;
+  border-radius: 15px;
+  margin-top: 3%;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-icon {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  width: 2vh;
+  aspect-ratio: 1 / 1;
+}
+
 .user-list-container {
   height: 55%;
   width: 100%;
@@ -125,4 +172,14 @@ body {
   font-weight: bold;
   gap: 2.5%;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  #uploadForm {
+    width: 20vw;
+  }
+
+  .delete-song {
+    width: 20vw;
+  }
 }

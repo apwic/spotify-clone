@@ -183,49 +183,60 @@ const songLayout = (role) => {
       const jsonData = JSON.parse(data);
       const song = jsonData.payload;
       if (role === "admin"){
-        document.getElementById("song-detail").innerHTML = `
-        <form enctype="multipart/form-data" method="post" onsubmit="updateSong(event)">
-          <div class="song-detail-container" id="judul">
-            <label>Judul</label>
-            <input type="text" id="judul_lagu" name="judul" placeholder="${song.judul}" value="${song.judul}" required/>
+        document.getElementById("page").innerHTML = `
+        <div class="song-detail-header">
+          <img class="song-img" src="${song.image_path}" alt=""/>
+          <div class="song-detail-title">
+            <strong>${song.judul}</strong>
+            <p>${song.penyanyi} - ${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</p>
           </div>
-          <div class="song-detail-container" id="penyanyi" value="${song.penyanyi}">
-            <label>Penyanyi</label>
-            <label>${song.penyanyi}</label>
+          <img 
+            class="song-play play-song-button"
+            data-image="${song.image_path}"
+            data-audio="${song.audio_path}"
+            data-judul="${song.judul}"
+            data-penyanyi="${song.penyanyi}"
+            src="./assets/image/play-btn-black.png" 
+          alt=""/>
+        </div>
+        <div class="song-detail view-scroll" id="song-detail">
+          <img class="edit-icon" src="./assets/image/edit.png" alt=""/>
+          <form enctype="multipart/form-data" method="post" onsubmit="updateSong(event)" id="edit-song">
+            <div class="song-detail-container" id="judul">
+              <label>Judul</label>
+              <input type="text" id="judul_lagu" name="judul" placeholder="${song.judul}" value="${song.judul}" required/>
+            </div>
+            <div class="song-detail-container" id="tanggal_terbit">
+              <label>Tanggal Terbit</label>
+              <input type="text" name="tanggalterbit_lagu" id="tanggalterbit_lagu" value="${song.tanggal_terbit}" placeholder="${song.tanggal_terbit}" required/>
+            </div>
+            <div class="song-detail-container" id="audio_path" data-value="${song.audio_path}">
+              <label>Audio Path</label>
+              <input type="file" name="file_lagu" id="file_lagu" accept=".mp3"/>
+            </div>
+            <div class="song-detail-container" id="image_path" data-value="${song.image_path}">
+              <label>Image Path</label>
+              <input type="file" name="image_lagu" id="image_lagu" accept=".png, .jpg, .jpeg"/>
+            </div>
+            <div class="song-detail-container" id="genre">
+              <label>Genre</label>
+              <input type="text" name="genre_lagu" id="genre_lagu" value="${song.genre}" placeholder="${song.genre}" required/>
+            </div>
+            <div class="song-detail-container" id="album_name" value="${song.album_id}">
+              <label>Judul Album</label>
+              <select name="album_lagu" id="album_lagu">
+                <option id="default-album" value="${song.album_id}">${song.judul_album}</option>
+              </select>
+            </div>
+            </form>
           </div>
-          <div class="song-detail-container" id="tanggal_terbit">
-            <label>Tanggal Terbit</label>
-            <input type="text" name="tanggalterbit_lagu" id="tanggalterbit_lagu" value="${song.tanggal_terbit}" placeholder="${song.tanggal_terbit}" required/>
-          </div>
-          <div class="song-detail-container" id="duration" data-value="${song.duration}">
-            <label>Duration</label>
-            <label>${song.duration}</label>
-          </div>
-          <div class="song-detail-container" id="audio_path" data-value="${song.audio_path}">
-            <label>Audio Path</label>
-            <audio controls><source src="${song.audio_path}" type="audio/mpeg"></audio>
-            <input type="file" name="file_lagu" id="file_lagu" accept=".mp3"/>
-          </div>
-          <div class="song-detail-container" id="image_path" data-value="${song.image_path}">
-            <label>Image Path</label>
-            <img src="${song.image_path}" alt=""/>
-            <input type="file" name="image_lagu" id="image_lagu" accept=".png, .jpg, .jpeg"/>
-          </div>
-          <div class="song-detail-container" id="genre">
-            <label>Genre</label>
-            <input type="text" name="genre_lagu" id="genre_lagu" value="${song.genre}" placeholder="${song.genre}" required/>
-          </div>
-          <div class="song-detail-container" id="album_name" value="${song.album_id}">
-            <label>Judul Album</label>
-            <select name="album_lagu" id="album_lagu">
-              <option id="default-album" value="${song.album_id}">${song.judul_album}</option>
-            </select>
-          </div>
-          <button type="button" class="delete-song" onclick="deleteSong()">
-            Delete Song
+        <div class="submit-delete" id="song-list">
+          <button type="button" class="delete-song" onclick="deleteAlbum()">
+            Delete
           </button>
-          <input type="submit" value="Submit" id="uploadForm" name="submit"/>
-        </form>
+          <input type="submit" form="edit-song" value="Submit" id="uploadForm" name="submit"/>
+        </div>
+      </div>
         `;
       } else {
         document.getElementById("page").innerHTML = `<div class="song-detail-header">
@@ -255,7 +266,7 @@ const songLayout = (role) => {
             </div>
             <div class="song-detail-container" id="duration">
               <label>Duration</label>
-              <div class="value">${song.duration}</div>
+              <div class="value">${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</div>
             </div>
             <div class="song-detail-container" id="genre">
               <label>Genre</label>

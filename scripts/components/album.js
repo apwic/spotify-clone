@@ -71,6 +71,7 @@ const albumLayout = (role) => {
       
       if (role === "admin") {
         document.getElementById("song-detail").innerHTML = `
+        <img class="edit-icon" src="./assets/image/edit.png" alt=""/>
           <form enctype="multipart/form-data" method="post" onsubmit="updateAlbum(event)">
             <div class="song-detail-container" id="judul">
               <label>Judul</label>
@@ -91,7 +92,7 @@ const albumLayout = (role) => {
             </div>
             <div class="submit-delete" id="song-list">
               <button type="button" class="delete-song" onclick="deleteAlbum()">
-                Delete Song
+                Delete
               </button>
               <input type="submit" value="Submit" id="uploadForm" name="submit"/>
             </div>

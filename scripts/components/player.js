@@ -43,7 +43,6 @@ document.addEventListener("click", function(e) {
 const playSong = (song_img, song_path, song_title, song_artist) => {
     getAPI('/api/authentication/userdata.php', (data) => {
         const userdata = JSON.parse(data);
-        console.log(userdata);
         if (userdata.hasOwnProperty('status') && userdata['status'] === 'error') {
             const ls = window.localStorage;
             const limit = JSON.parse(ls.getItem("user"));
@@ -53,6 +52,7 @@ const playSong = (song_img, song_path, song_title, song_artist) => {
             if (limit) {
                 if (limit.amount === 3 && limit.date === date) {
                     alert("Today's max limit reached. Log in for unlimited streams or come back tomorrow!");
+                    window.location.href = `${window.location.protocol}//${window.location.host}/login.html`;
                 } else {
                     let amount = 0;
                     if (limit.date === date) {
@@ -62,10 +62,13 @@ const playSong = (song_img, song_path, song_title, song_artist) => {
                     setPlayer(song_img, song_path, song_title, song_artist);
                 }
             } else {
+                console.log("ts");
                 const amount = 1;
                 ls.setItem("user", JSON.stringify({amount: amount, date: date}));
                 setPlayer(song_img, song_path, song_title, song_artist);
             }
+        } else {
+            setPlayer(song_img, song_path, song_title, song_artist);
         }
     });
 }
