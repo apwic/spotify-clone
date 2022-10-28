@@ -83,7 +83,7 @@ const albumLayout = (role) => {
             </div>
             <div class="song-detail-container" id="total_duration" data-value="${album.total_duration}">
               <label>Total Duration</label>
-              <label>${album.total_duration}</label>
+              <label>${(album.total_duration/60) >> 0}:${("0" + album.total_duration%60).slice(-2)}</label>
             </div>
             <div class="song-detail-container" id="image_path" data-value="${album.image_path}">
               <label>Image Path</label>
@@ -111,7 +111,7 @@ const albumLayout = (role) => {
           </div>
           <div class="song-detail-container" id="total_duration">
             <label>Total Duration</label>
-            <label>${album.total_duration}</label>
+            <label>${(album.total_duration/60) >> 0}:${("0" + album.total_duration%60).slice(-2)}</label>
           </div>
           <div class="song-detail-container" id="image_path">
             <label>Image Path</label>

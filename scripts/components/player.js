@@ -4,7 +4,7 @@ const playerLayout = () => {
         <div id="overlay-container">
             <div id="audio-player-container">
             <div class="song-cover">
-                <img id="song-img" src="./assets/cover/song/ktm-16520307.jpg" />
+                <img id="song-img" src="" />
             </div>
             <div class="song-desc">
                 <strong id="song-title">Cepak Mambo REmix</strong>
@@ -15,7 +15,7 @@ const playerLayout = () => {
                 <input type="range" id="seek-slider" max="100" value="0">
                 <div id="duration" class="time">0:00</div>
             </div>
-            <audio id="song-path" src="./assets/music/hahohu.mp3" preload="metadata" loop></audio>
+            <audio id="song-path" src="" preload="metadata" loop></audio>
             <div class="button-container">
                 <img class="img-icon" id="back-icon" src="./assets/image/back-btn.png" onclick="closeSong()" />
                 <img class="img-icon" id="play-icon" src="./assets/image/play-btn.png" />

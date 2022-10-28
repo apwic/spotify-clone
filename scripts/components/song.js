@@ -231,7 +231,7 @@ const songLayout = (role) => {
             </form>
           </div>
         <div class="submit-delete" id="song-list">
-          <button type="button" class="delete-song" onclick="deleteAlbum()">
+          <button type="button" class="delete-song" onclick="deleteSong()">
             Delete
           </button>
           <input type="submit" form="edit-song" value="Submit" id="uploadForm" name="submit"/>

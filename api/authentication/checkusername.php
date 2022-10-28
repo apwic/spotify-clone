@@ -9,7 +9,7 @@ if (!isset($_POST['username'])) {
 } else {
     $username = $_POST['username'];
 
-    $sqlQuery = $con->prepare("SELECT `username` FROM `users` WHERE `username` = ?");
+    $sqlQuery = $con->prepare("SELECT `username` FROM `USERS` WHERE `username` = ?");
     $sqlQuery->bind_param('s', $username);
 
     if (!$sqlQuery->execute()) {

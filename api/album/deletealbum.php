@@ -2,16 +2,12 @@
 
 require_once '../config.php';
 
-echo(json_encode("hihi"));
 $songs = json_decode($_POST["songs"]);
 foreach ($songs as $song) {
-    echo(json_encode("hihi"));
     $song_id = $song->song_id;
     echo(json_encode($song));
     deleteSong($con, $song_id);
 }
-echo(json_encode("hihi"));
-
 
 $id = $_POST["id"];
 $query = $con->prepare("SELECT `image_path` 

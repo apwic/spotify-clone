@@ -3,7 +3,7 @@
 require_once '../config.php';
 $page_size = constant('PAGE_SIZE');
 
-$query = $con->prepare("SELECT `username`, `email` FROM `users` WHERE `isAdmin` = 0");
+$query = $con->prepare("SELECT `username`, `email` FROM `USERS` WHERE `isAdmin` = 0");
 
 if (!$query->execute()) {
     $result = ["status" => "error", "description" => $con->error];
