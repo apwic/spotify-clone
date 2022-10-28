@@ -10,31 +10,33 @@
         <link rel="stylesheet" href="styles/auth.css" />
     </head>
     <body>
-        <div id="row-1">
-            <div id="header">
-                <image id="logo-image" src="assets/image/logo-good-quality.png" alt="logo" />
-                <div id="title">Sepotipayi</div>
+        <div class="container">
+            <div id="row-1">
+                <div id="header">
+                    <image id="logo-image" src="assets/image/logo-good-quality.png" alt="logo" />
+                    <div id="title">Sepotipayi</div>
+                </div>
             </div>
-        </div>
-
-        <div id="row-2">
-            <form onsubmit="registered(event)" enctype="multipart/form">
-                <div class="form-style space-top">Sign up for free to start listening</div>
-                <div class="form-style space-top-username">Enter your username</div>
-                <div class="error-message"></div>
-                <input required class="form-style input-style" type="text" id="username" name="username" placeholder="Username" oninput="checkUsername(event)" />
-                <div class="form-style">What's your email?</div>
-                <div class="error-message"></div>
-                <input required class="form-style input-style" type="email" id="email" name="email" placeholder="Email" oninput="checkEmail(event)" />
-                <div class="form-style">Enter your password</div>
-                <div class="error-message"></div>
-                <input required class="form-style input-style" type="password" id="password" name="password" placeholder="Password" />
-                <div class="form-style">Confirm your password</div>
-                <div class="error-message"></div>
-                <input required class="form-style input-style" type="password" id="repassword" name="repassword" placeholder="Password" />
-                <button class="form-style button-style space-button" type="submit">Register</button>
-                <div class="form-style space-top">Already have an account? <a href="login.html">Log In for Sepotipayi</a></div>
-            </form>
+    
+            <div id="row-2">
+                <form onsubmit="registered(event)" enctype="multipart/form">
+                    <div class="form-style space-top">Sign up for free to start listening</div>
+                    <div class="form-style space-top-username">Enter your username</div>
+                    <div class="error-message"></div>
+                    <input required class="form-style input-style" type="text" id="username" name="username" placeholder="Username" oninput="checkUsername(event)" />
+                    <div class="form-style">What's your email?</div>
+                    <div class="error-message"></div>
+                    <input required class="form-style input-style" type="email" id="email" name="email" placeholder="Email" oninput="checkEmail(event)" />
+                    <div class="form-style">Enter your password</div>
+                    <div class="error-message"></div>
+                    <input required class="form-style input-style" type="password" id="password" name="password" placeholder="Password" />
+                    <div class="form-style">Confirm your password</div>
+                    <div class="error-message"></div>
+                    <input required class="form-style input-style" type="password" id="repassword" name="repassword" placeholder="Password" />
+                    <button class="form-style button-style space-button" type="submit">Register</button>
+                    <div class="form-style space-top">Already have an account? <a href="login.html">Log In for Sepotipayi</a></div>
+                </form>
+            </div>
         </div>
 
         <script src="scripts/authentication/handleCookie.js"></script>
