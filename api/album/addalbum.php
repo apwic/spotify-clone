@@ -18,7 +18,7 @@ if (!$mainquery->execute()) {
     exit(json_encode($result));
 }
 
-$result = ["status" => "success", "description" => "album successfully added", "session" => $session];
+$result = ["status" => "success", "description" => "album successfully added"];
 http_response_code(200);
 
 echo json_encode($result);

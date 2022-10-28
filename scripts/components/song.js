@@ -12,7 +12,6 @@ const updateSong = (e) => {
   let audio_path = document.getElementById("audio_path").getAttribute("data-value");
   let image_path = document.getElementById("image_path").getAttribute("data-value");
   const old_audio_path = audio_path;
-  const old_image_path = image_path;
   const songDetail = populateData();
   if (document.querySelector("#file_lagu").files[0]) {
     audio_path = ""
@@ -48,7 +47,6 @@ const updateSong = (e) => {
                     alert(data["description"]);
                     if (data.status === "success") {
                       deleteFile(old_audio_path);
-                      deleteFile(old_image_path);
                       window.location.reload();
                     }
                   }, songDetail
@@ -103,7 +101,6 @@ const updateSong = (e) => {
             `./api/song/updatesong.php`, (resp) => {
               const data = JSON.parse(resp);
               if (data.status === "success") {
-                deleteFile(old_image_path);
                 window.location.reload();
               }
             }, songDetail
