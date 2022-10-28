@@ -89,7 +89,7 @@ function isAdmin($con, $userId) {
 
 // deleting song
 function deleteSong($con, $id) {
-    $query = $con->prepare("SELECT `audio_path`, `image_path` 
+    $query = $con->prepare("SELECT `audio_path`
         FROM `song` 
         WHERE `song_id` = ?");
     $query->bind_param("i", $id);
@@ -101,13 +101,11 @@ function deleteSong($con, $id) {
     }
     $target = ($query->get_result()->fetch_assoc());
     $target_audio = "../." . $target["audio_path"];
-    $target_image = "../." . $target["image_path"];
     
-    if (file_exists($target_audio) && file_exists($target_image)) {
+    if (file_exists($target_audio)) {
         unlink($target_audio);
-        unlink($target_image);
     } else {
-        $result = ["status" => "error", "description" => "unable to delete img/audio file"];
+        $result = ["status" => "error", "description" => "unable to delete audio file"];
         http_response_code(500);
         exit(json_encode($result));
     }

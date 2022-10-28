@@ -22,15 +22,7 @@ if(!$query->execute()){
 }
 
 $target = ($query->get_result()->fetch_assoc());
-$target_image = "../." . $target["image_path"];
 
-if (file_exists($target_image)) {
-    unlink($target_image);
-} else {
-    $result = ["status" => "error", "description" => "unable to delete img file"];
-    http_response_code(500);
-    exit(json_encode($result));
-}
 $query = $con->prepare("DELETE 
     FROM `album` 
     WHERE `album_id` = ?");
