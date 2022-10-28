@@ -8,21 +8,21 @@ const songsLayout = (page) => {
             <div id="songs" class="song-list-container">`;
 
       str += songs.map(song =>
-        `<div class="song-list" data-value="${song.song_id}"
+          `<div class="song-list" data-value="${song.song_id}"
             data-image="${song.image_path}"
             data-audio="${song.audio_path}"
             data-judul="${song.judul}"
             data-penyanyi="${song.penyanyi}"
           >
-        <div class="img-detail">
-          <img class="img-search" src="${song.image_path}" alt=""/>
-          <div class="detail-song">
-            <label>${song.judul}</label>
-            <label>${song.penyanyi}</label>
-          </div>
-        </div>
-        <label class="label">${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</label>
-      </div>`
+            <div class="img-detail">
+              <img class="img-search" src="${song.image_path}" alt=""/>
+              <div class="detail-song">
+                <label>${song.judul}</label>
+                <label>${song.penyanyi}</label>
+              </div>
+            </div>
+            <label class="label">${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</label>
+          </div>`
       ).join("");
   
       str += `

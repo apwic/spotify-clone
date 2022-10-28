@@ -71,31 +71,31 @@ const albumLayout = (role) => {
       
       if (role === "admin") {
         document.getElementById("song-detail").innerHTML = `
-        <form enctype="multipart/form-data" method="post" onsubmit="updateAlbum(event)">
-          <div class="song-detail-container" id="judul">
-            <label>Judul</label>
-            <input required type="text" name="judul_album" id="judul_album" value=${album.judul} placeholder="${album.judul}"/>
-          </div>
-          <div class="song-detail-container" id="penyanyi">
-            <label>Penyanyi</label>
-            <input required type="text" name="penyanyi_album" id="penyanyi_album" value="${album.penyanyi}" placeholder="${album.penyanyi}"/>
-          </div>
-          <div class="song-detail-container" id="total_duration" data-value="${album.total_duration}">
-            <label>Total Duration</label>
-            <label>${album.total_duration}</label>
-          </div>
-          <div class="song-detail-container" id="image_path" data-value="${album.image_path}">
-            <label>Image Path</label>
-            <img src="${album.image_path}" alt=""/>
-            <input type="file" name="img_album" id="img_album" accept=".png, .jpg, .jpeg"/>
-          </div>
-          <div class="song-detail-container" id="song-list">
-            <button type="button" class="delete-song" onclick="deleteAlbum()">
-              Delete Song
-            </button>
-            <input type="submit" value="Submit" id="uploadForm" name="submit"/>
-          </div>
-        </form>
+          <form enctype="multipart/form-data" method="post" onsubmit="updateAlbum(event)">
+            <div class="song-detail-container" id="judul">
+              <label>Judul</label>
+              <input required type="text" name="judul_album" id="judul_album" value=${album.judul} placeholder="${album.judul}"/>
+            </div>
+            <div class="song-detail-container" id="penyanyi">
+              <label>Penyanyi</label>
+              <input required type="text" name="penyanyi_album" id="penyanyi_album" value="${album.penyanyi}" placeholder="${album.penyanyi}"/>
+            </div>
+            <div class="song-detail-container" id="total_duration" data-value="${album.total_duration}">
+              <label>Total Duration</label>
+              <label>${album.total_duration}</label>
+            </div>
+            <div class="song-detail-container" id="image_path" data-value="${album.image_path}">
+              <label>Image Path</label>
+              <img src="${album.image_path}" alt=""/>
+              <input type="file" name="img_album" id="img_album" accept=".png, .jpg, .jpeg"/>
+            </div>
+            <div class="submit-delete" id="song-list">
+              <button type="button" class="delete-song" onclick="deleteAlbum()">
+                Delete Song
+              </button>
+              <input type="submit" value="Submit" id="uploadForm" name="submit"/>
+            </div>
+          </form>
         `;
       } else {
         document.getElementById("song-detail").innerHTML = `
@@ -127,12 +127,19 @@ const albumLayout = (role) => {
         
         str += songs.map(song =>
           `<div class="song-list" data-value="${song.song_id}">
-          <img src="${song.image_path}" alt=""/>
-          <label>${song.judul} - ${song.penyanyi} - ${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</label>
+            <div class="song-list-detail">
+              <img class="detail-img" src="${song.image_path}" alt=""/>
+              <div class="detail-song">
+                <label>${song.judul}</label>
+                <label>${song.penyanyi}</label>
+              </div>
+            </div>
+            <label class="label">${(song.duration/60) >> 0}:${("0" + song.duration%60).slice(-2)}</label>
           </div>`
           ).join("");
           
-          document.getElementById("page-container").insertAdjacentHTML("beforeend", str);
+        str += `</div>`;
+        document.getElementById("page-container").insertAdjacentHTML("beforeend", str);
       });
     }
   );
