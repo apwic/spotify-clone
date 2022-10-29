@@ -1,8 +1,3 @@
-html, body {
-    scroll-behavior: scroll;
-    overflow-y: scroll;
-}
-
 body {
     height: 100vh;
     width: 100vw;
@@ -20,8 +15,6 @@ body {
 
 #row-1 {
     width: 100%;
-    margin-top: 5vh;
-    margin-bottom: 6vh;
 }
 
 #header {
@@ -46,6 +39,8 @@ body {
 
 #row-2 {
     width: 100%;
+    height: auto;
+    margin-top: 3%;
 }
 
 form {
@@ -55,12 +50,13 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1%;
 }
 
 .form-style {
-    margin-bottom: 1%;
+    margin-bottom: 0.5vh;
     font-weight: 500;
-    font-size: clamp(0.5rem, 2.3vw, 1.3rem);
+    font-size: clamp(0.5rem, 1.4vw, 1rem);
 }
 
 .space-top-username {

@@ -27,3 +27,14 @@ label {
   margin-left: 2%;
   margin-right: 2%
 }
+
+.song-title {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .song-list-container {
+    margin-top: 15%;
+    height: 70%;
+  }
+}

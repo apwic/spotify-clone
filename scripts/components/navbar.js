@@ -17,8 +17,7 @@ const userPanel = (role, username) => {
 }
 
 const navbarLayout = (role, loginStatus) => {
-  return `
-        <div class="navbar-container">
+  return `<div class="navbar-container">
         <div class="section-features">
             <div class="feature-group" onClick="goToHome()">
               <img src="./assets/image/home.png"/>
@@ -97,7 +96,6 @@ const logout = () => {
 const isThisAdmin = () => {
   getAPI('/api/authentication/userdata.php', (data) => {
     const userdata = JSON.parse(data);
-    console.log(userdata);
     let thisIsAdmin = "user";
     let hasLogin = false;
     let name = "Guest";
@@ -110,7 +108,6 @@ const isThisAdmin = () => {
       name = userdata.dataUser.username;
     }
 
-    console.log(thisIsAdmin, hasLogin, name);
     document.getElementById("navbar").innerHTML = navbarLayout(thisIsAdmin, hasLogin);
     document.getElementById("user-panel").innerHTML = userPanel(thisIsAdmin, name);
   });

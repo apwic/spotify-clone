@@ -17,7 +17,7 @@ const songsLayout = (page) => {
             <div class="img-detail">
               <img class="img-search" src="${song.image_path}" alt=""/>
               <div class="detail-song">
-                <label>${song.judul}</label>
+                <label class="song-title">${song.judul}</label>
                 <label>${song.penyanyi}</label>
               </div>
             </div>
@@ -53,7 +53,6 @@ const clickSongDetail = (id) => {
 document.addEventListener("click", function(e) {
   if (e.target.getAttribute("class") == "song-list") {
     const id = e.target.getAttribute("data-value");
-    console.log(id);
     clickSongDetail(id);
   }
 });

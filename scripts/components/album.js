@@ -36,7 +36,6 @@ const updateAlbum = (e) => {
     postAPI(
       `./api/album/updatealbum.php`, (resp) => {
         const data = JSON.parse(resp);
-        console.log(resp);
         if (data.status == "success") {
           // window.location.reload();
         }
@@ -71,8 +70,9 @@ const albumLayout = (role) => {
       
       if (role === "admin") {
         document.getElementById("song-detail").innerHTML = `
-        <img class="edit-icon" src="./assets/image/edit.png" alt=""/>
+        <div class="album-detail-container">
           <form enctype="multipart/form-data" method="post" onsubmit="updateAlbum(event)">
+            <img class="edit-icon" src="./assets/image/edit.png" alt=""/>
             <div class="song-detail-container" id="judul">
               <label>Judul</label>
               <input required type="text" name="judul_album" id="judul_album" value=${album.judul} placeholder="${album.judul}"/>
@@ -81,43 +81,43 @@ const albumLayout = (role) => {
               <label>Penyanyi</label>
               <input required type="text" name="penyanyi_album" id="penyanyi_album" value="${album.penyanyi}" placeholder="${album.penyanyi}"/>
             </div>
-            <div class="song-detail-container" id="total_duration" data-value="${album.total_duration}">
-              <label>Total Duration</label>
-              <label>${(album.total_duration/60) >> 0}:${("0" + album.total_duration%60).slice(-2)}</label>
-            </div>
             <div class="song-detail-container" id="image_path" data-value="${album.image_path}">
               <label>Image Path</label>
-              <img src="${album.image_path}" alt=""/>
               <input type="file" name="img_album" id="img_album" accept=".png, .jpg, .jpeg"/>
+            </div>
+            <div class="song-detail-container" id="total_duration" data-value="${album.total_duration}">
+              <label>Total Duration</label>
+              <label class="song-duration">${(album.total_duration/60) >> 0}:${("0" + album.total_duration%60).slice(-2)}</label>
             </div>
             <div class="submit-delete" id="song-list">
               <button type="button" class="delete-song" onclick="deleteAlbum()">
                 Delete
               </button>
-              <input type="submit" value="Submit" id="uploadForm" name="submit"/>
+              <input type="submit" id="uploadForm" name="submit"/>
             </div>
           </form>
+          <img src="${album.image_path}" alt=""/>
+        </div>
         `;
       } else {
         document.getElementById("song-detail").innerHTML = `
-        <form enctype="multipart/form-data">
-          <div class="song-detail-container" id="judul">
-            <label>Judul</label>
-            <label>${album.judul}</label>
-          </div>
-          <div class="song-detail-container" id="penyanyi">
-            <label>Penyanyi</label>
-            <label>${album.penyanyi}</label>
-          </div>
-          <div class="song-detail-container" id="total_duration">
-            <label>Total Duration</label>
-            <label>${(album.total_duration/60) >> 0}:${("0" + album.total_duration%60).slice(-2)}</label>
-          </div>
-          <div class="song-detail-container" id="image_path">
-            <label>Image Path</label>
-            <img src="${album.image_path}" alt=""/>
-          </div>
-        </form>
+        <div class="album-detail-container">
+          <form enctype="multipart/form-data">
+            <div class="song-detail-container" id="judul">
+              <label>Judul</label>
+              <label>${album.judul}</label>
+            </div>
+            <div class="song-detail-container" id="penyanyi">
+              <label>Penyanyi</label>
+              <label>${album.penyanyi}</label>
+            </div>
+            <div class="song-detail-container" id="total_duration">
+              <label>Total Duration</label>
+              <label>${(album.total_duration/60) >> 0}:${("0" + album.total_duration%60).slice(-2)}</label>
+            </div>
+          </form>
+          <img src="${album.image_path}" alt=""/>
+        </div>
         `;
       }
 
@@ -148,7 +148,6 @@ const albumLayout = (role) => {
 
 const deleteAlbum = () => {
     const id = new URLSearchParams(window.location.search).get("id");
-    console.log(id);
     getAPI(`./api/song/getsongs.php?album_id=${id}`, async(resp) => {
         const data = JSON.parse(resp);
         const formData = new FormData();
@@ -199,7 +198,6 @@ const clickSongDetail = (id) => {
 document.addEventListener("click", function(e) {
   if (e.target.getAttribute("class") == "song-list") {
     const id = e.target.getAttribute("data-value");
-    console.log(id);
     clickSongDetail(id);
   }
 });

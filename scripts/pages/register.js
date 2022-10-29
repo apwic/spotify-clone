@@ -4,7 +4,6 @@ const callbackChecking = (data) => {
 
     // check the status
     if (result.hasOwnProperty('status') && result['status'] === 'success') {
-        console.log('Available!');
         if (result['code'] === 'user') {
             document.getElementById('username').style.borderColor = 'green';
             document.getElementsByClassName('error-message')[0].innerHTML = '';
@@ -14,7 +13,6 @@ const callbackChecking = (data) => {
             document.getElementsByClassName('error-message')[1].innerHTML = '';
         }
     } else {
-        console.log('not Available!');
         if (result['code'] === 'user') {
             document.getElementById('username').style.borderColor = 'red';
             document.getElementsByClassName('error-message')[0].innerHTML = result['description'];
@@ -29,7 +27,6 @@ const callbackChecking = (data) => {
 const checkUsername = (e) => {
     e.preventDefault();
 
-    console.log(e.target.value);
     const usernameData = new FormData();
     usernameData.append('username', e.target.value);
 

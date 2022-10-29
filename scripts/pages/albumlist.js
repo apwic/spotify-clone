@@ -54,7 +54,6 @@ const clickAlbumDetail = (id) => {
 document.addEventListener("click", function(e) {
   if (e.target.getAttribute("class") == "album-list") {
     const id = e.target.getAttribute("data-value");
-    console.log(id);
     clickAlbumDetail(id);
   }
 });

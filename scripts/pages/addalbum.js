@@ -19,7 +19,6 @@ const addAlbum = (e) => {
       "/api/addfile.php",
       (resp) => {
         img_path = callback(resp);
-        console.log(img_path);
         postAlbum(img_path);
       },
       coverFile
@@ -32,10 +31,8 @@ const addAlbum = (e) => {
 };
 
 const postAlbum = (img_path) => {
-  console.log("masuk");
   const albumDetail = populateData();
   albumDetail.append("image_path", img_path);
-  console.log("pak eko");
 
   postAPI("/api/album/addalbum.php", callbackAdded, albumDetail);
   return;

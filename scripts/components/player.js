@@ -62,7 +62,6 @@ const playSong = (song_img, song_path, song_title, song_artist) => {
                     setPlayer(song_img, song_path, song_title, song_artist);
                 }
             } else {
-                console.log("ts");
                 const amount = 1;
                 ls.setItem("user", JSON.stringify({amount: amount, date: date}));
                 setPlayer(song_img, song_path, song_title, song_artist);

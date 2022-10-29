@@ -70,7 +70,6 @@ const updateSong = (e) => {
             songDetail.append("audio_path", audio_path);
             songDetail.append("image_path", image_path);
             songDetail.append("duration", audio_duration);
-            console.log(audio_duration);
 
             postAPI(
               `./api/song/updatesong.php`, (resp) => {

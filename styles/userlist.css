@@ -15,7 +15,9 @@
     color: black !important;
     font-size: 2vh;
     font-weight: bold;
+    margin-top: 4%;
     background: var(--light_green);
+    font-size: clamp(0.6rem, 1.3vw, 1.3rem);
 }
 
 .user-list {
@@ -38,5 +40,5 @@
 
 .text-info {
     font-weight: 500;
-    font-size: 1.5vh;
+    font-size: clamp(0.6rem, 0.9vw, 1rem);
 }

@@ -1,12 +1,29 @@
 .song-detail {
-  width: 70%;
+  width: 100%;
   padding-top: 5vh;
   padding-right: 5%;
+}
+
+.album-detail-container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: space-between;
+}
+
+.album-detail-container > form {
+  width: 70%;
   position: relative;
 }
 
+.album-detail-container > img {
+  height: 13vw;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
 .song-detail-container {
-  margin-bottom: 5%;
+  margin-bottom: 3%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,17 +31,23 @@
 
 label {
   font-weight: 500;
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-size: clamp(0.6rem, 1.5vw, 1rem);
   margin-right: 5%;
+}
+
+.song-duration {
+  margin-right: 0;
 }
 
 input {
   width: 45%;
   height: 2.5vw;
+  max-height: 22px;
   padding: 1% 1.5%;
   font-weight: 400;
   border: none;
   border-radius: 7.5px;
+  font-size: clamp(0.6rem, 1.5vw, 1rem);
 }
 
 #img_album {
@@ -38,7 +61,7 @@ input {
 }
 
 .song-list-container {
-  height: 30%;
+  height: 50%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -64,4 +87,10 @@ input {
   justify-content: center;
   flex-direction: column;
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .song-list-container {
+    margin-top: 14%;
+  }
 }
