@@ -1,8 +1,3 @@
-html, body {
-    scroll-behavior: scroll;
-    overflow-y: scroll;
-}
-
 .album-detail {
   margin-top: 5%;
   width: 55%;

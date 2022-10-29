@@ -1,8 +1,3 @@
-html, body {
-    scroll-behavior: scroll;
-    overflow-y: scroll;
-}
-
 .album-list-container {
   height: 75%;
   overflow-y: auto;
