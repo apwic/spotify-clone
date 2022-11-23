@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ../:/var/www/html
+      - ./:/var/www/html
       - ./php.ini:/usr/local/etc/php/conf.d/php.ini
     ports:
       - 8008:80
@@ -24,7 +24,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: user
     volumes:
-      - ../sepotipayi.sql:/docker-entrypoint-initdb.d/sepotipayi.sql:ro
+      - ./sepotipayi.sql:/docker-entrypoint-initdb.d/sepotipayi.sql:ro
     ports:
       - 6666:3306
   phpmyadmin:
