@@ -1,0 +1,40 @@
+.img-detail {
+  width: 100%;
+  margin-left: 2%;
+  display: flex;
+  align-items: left;
+}
+
+.img-search {
+  margin-right: 3%;
+  height: 4.5vh;
+  width: 4.5vh;
+}
+
+.label {
+  margin-right: 4%;
+}
+
+.detail-song {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  margin-left: 2%;
+  margin-right: 2%
+}
+
+.song-title {
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .song-list-container {
+    margin-top: 15%;
+    height: 70%;
+  }
+}
