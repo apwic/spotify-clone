@@ -11,8 +11,8 @@ define('DBNAME', 'sepotipayi');
 define('PAGE_SIZE', 10);
 define('PAGE_SIZE_album', 12);
 
-// $con = new mysqli(HOST, USER, PASS, DBNAME);
-$con = new mysqli('tubes-1-db', 'root', 'root', 'sepotipayi');
+$con = new mysqli(HOST, USER, PASS, DBNAME);
+// $con = new mysqli('tubes-1-db', 'root', 'root', 'sepotipayi');
 
 // this code to check response code for debugging
 if ($con->connect_errno) {
