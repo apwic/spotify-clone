@@ -1,0 +1,44 @@
+.info {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+
+.info-column {
+  display: flex;
+  justify-content: center;
+  width: 45%;
+  border: 3px solid var(--light_green);
+  border-radius: 20px;
+  padding: 1%;
+  color: black !important;
+  font-size: 2vh;
+  font-weight: bold;
+  margin-top: 4%;
+  background: var(--light_green);
+  font-size: clamp(0.6rem, 1.3vw, 1.3rem);
+}
+
+.singer-list {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1%;
+}
+
+.singer {
+  display: flex;
+  border: 1px solid var(--light_green);
+  border-radius: 20px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
+  justify-content: center;
+  width: 45%;
+}
+
+.text-info {
+  font-weight: 500;
+  font-size: clamp(0.6rem, 0.9vw, 1rem);
+}

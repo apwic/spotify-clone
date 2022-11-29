@@ -35,6 +35,10 @@ const navbarLayout = (role, loginStatus) => {
               <img src="./assets/image/song.png"/>
               <div class="navbar-text">Premium Song</div>
             </div>
+            <div class="feature-group" onClick="goToPremiumSingerList()">
+              <img src="./assets/image/microphone.png"/>
+              <div class="navbar-text">Premium Singer</div>
+            </div>
             <br/>
         ${
           role === "admin"
@@ -87,6 +91,10 @@ goToSearch = () => {
 const goToPremiumSongList = () => {
   window.location.href = `${window.location.protocol}//${window.location.host}/premium-song-list.html`;
 };
+
+const goToPremiumSingerList = () => {
+  window.location.href = `${window.location.protocol}//${window.location.host}/premium-singer.html`;
+}
 
 const goToHome = () => {
   window.location.href = `${window.location.protocol}//${window.location.host}`;
