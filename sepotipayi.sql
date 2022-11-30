@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Host: db
--- Generation Time: Oct 28, 2022 at 07:26 AM
--- Server version: 8.0.31
+-- Host: localhost:3306
+-- Generation Time: Nov 30, 2022 at 09:42 AM
+-- Server version: 8.0.31-0ubuntu0.20.04.1
 -- PHP Version: 8.0.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -15,11 +16,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `sepotipayi`
 --
+CREATE DATABASE IF NOT EXISTS `sepotipayi` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `sepotipayi`;
 
 -- --------------------------------------------------------
 
@@ -35,7 +38,7 @@ CREATE TABLE `album` (
   `image_path` char(255) NOT NULL,
   `tanggal_terbit` date NOT NULL,
   `genre` char(64) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `album`
@@ -62,7 +65,7 @@ CREATE TABLE `sessions` (
   `session_id` char(255) NOT NULL,
   `user_id` int NOT NULL,
   `exp` char(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `sessions`
@@ -121,7 +124,7 @@ CREATE TABLE `song` (
   `image_path` char(255) DEFAULT NULL,
   `album_id` int DEFAULT NULL,
   `genre` char(64) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `song`
@@ -147,6 +150,27 @@ INSERT INTO `song` (`song_id`, `judul`, `penyanyi`, `tanggal_terbit`, `duration`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `subscription`
+--
+
+CREATE TABLE `subscription` (
+  `creator_id` int NOT NULL,
+  `subscriber_id` int NOT NULL,
+  `creator_name` char(255) NOT NULL,
+  `subscriber_name` char(255) NOT NULL,
+  `status` char(255) NOT NULL DEFAULT 'PENDING'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `subscription`
+--
+
+INSERT INTO `subscription` (`creator_id`, `subscriber_id`, `creator_name`, `subscriber_name`, `status`) VALUES
+(0, 0, 'default', 'default', 'PENDING');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -156,7 +180,7 @@ CREATE TABLE `users` (
   `password` char(255) NOT NULL,
   `username` char(255) NOT NULL,
   `isAdmin` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `users`
@@ -192,6 +216,12 @@ ALTER TABLE `sessions`
 ALTER TABLE `song`
   ADD PRIMARY KEY (`song_id`),
   ADD KEY `fk_songalbum` (`album_id`);
+
+--
+-- Indexes for table `subscription`
+--
+ALTER TABLE `subscription`
+  ADD PRIMARY KEY (`creator_id`,`subscriber_id`);
 
 --
 -- Indexes for table `users`
