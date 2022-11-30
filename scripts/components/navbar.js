@@ -120,7 +120,7 @@ const isThisAdmin = () => {
       if (userdata.dataUser.isAdmin === "1") {
         thisIsAdmin = "admin";
       }
-      hasLogin = true;
+      hasLogin = true;  
       name = userdata.dataUser.username;
     }
 
