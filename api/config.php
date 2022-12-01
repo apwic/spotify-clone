@@ -10,10 +10,11 @@ define('PASS', '');
 define('DBNAME', 'sepotipayi');
 define('PAGE_SIZE', 10);
 define('PAGE_SIZE_album', 12);
-define('SOAP_URL', 'http://localhost:7070/subscription');
+define('SOAP_URL', 'http://host.docker.internal:7070/subscription');
+define('API_KEY', '765a760d1c49d5b36f7ec67aa36e246e');
 
-$con = new mysqli(HOST, USER, PASS, DBNAME);
-// $con = new mysqli('tubes-1-db', 'root', 'root', 'sepotipayi');
+// $con = new mysqli(HOST, USER, PASS, DBNAME);
+$con = new mysqli('tubes-1-db', 'root', 'root', 'sepotipayi');
 
 // this code to check response code for debugging
 if ($con->connect_errno) {
