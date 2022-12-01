@@ -1,8 +1,8 @@
-# Milestone 1 IF3110 Pengembangan Aplikasi Berbasis Web
+# Milestone 2 IF3110 Pengembangan Aplikasi Berbasis Web
 
 ## Deskripsi Aplikasi Web
 
-Aplikasi ini dibuat semacam clonning dari aplikasi Spotify, dimana penggunanya dapat mendengarkan lagu-lagu yang ada di dalam aplikasi. Aplikasi ini dibuat dengan menggunakan bahasa pemrograman Vanilla PHP, Vanilla JavaScript, HTML, CSS, dan MySQL.
+Aplikasi ini dibuat semacam clonning dari aplikasi Spotify, dimana penggunanya dapat mendengarkan lagu-lagu yang ada di dalam aplikasi dan melakukan subscription terhadap penyanyi premium. Aplikasi ini dibuat dengan menggunakan bahasa pemrograman Vanilla PHP, Vanilla JavaScript, HTML, CSS, dan MySQL.
 
 ## Daftar Requirement
 
@@ -14,19 +14,15 @@ Aplikasi ini dibuat semacam clonning dari aplikasi Spotify, dimana penggunanya d
 6. Terdapat navigation bar pada setiap page
 7. Admin dapat melihat daftar user yang terdaftar pada aplikasi
 8. Admin dapat membuat, menghapus, dan mengubah lagu serta album yang ada di aplikasi
-
-## Cara Instalasi
-
-- Install XAMPP [di sini](https://www.apachefriends.org/index.html)
-- Install Docker [di sini](https://docs.docker.com/engine/install/)
+9. Pengguna dapat membuat permintaan subscription terhadap penyanyi premium.
+10. Pengguna dapat melakukan eksplorasi nama penyanyi yang menyediakan lagu premium.
 
 ## Cara Menjalankan Server
+> Perlu diperhatikan bahwa terdapat repository `sepotipayi-docker` untuk mempermudah menjalankan aplikasi secara sekaligus dan **disarankan** untuk menjalankan client melewati repository tersebut.
 
-1. Buka folder `docker` pada terminal
-2. Pastikan docker desktop sudah dijalankan
-3. Jalankan perintah `docker build -t tubes-1 . --no-cache`
-4. Setelah selesai dieksekusi, jalankan perintah `docker-compose up`
-5. Buka browser dan ketikkan `localhost:8008` pada address bar untuk melihat web yang dibuat
+1. Pastikan docker desktop sudah dijalankan, disarankan untuk melakukan delete terlebih dahulu pada image MySQL yang sudah dimiliki sebelumnya
+2. Jalankan perintah `docker-compose up --build`
+3. Buka browser dan ketikkan `localhost:8008` pada address bar untuk melihat web yang dibuat
 
 > Untuk melihat daftar port pada docker, jalankan perintah dapat dilihat pada aplikasi docker desktop sesuai dengan container yang dijalankan
 
@@ -69,9 +65,12 @@ Aplikasi ini dibuat semacam clonning dari aplikasi Spotify, dimana penggunanya d
 ### Player
 ![](screenshot/player.png)
 
-
 ### User List (Admin)
 ![](screenshot/userlist.png)
+
+### Premium Song
+
+### Premium Singer
 
 ## Pembagian Tugas
 
@@ -89,6 +88,8 @@ Aplikasi ini dibuat semacam clonning dari aplikasi Spotify, dimana penggunanya d
 - Navbar: 13520044, 13520083, 13520107
 - Player: 13520083
 - Responsive: 13520083, 13520107
+- Premium Song: 13520044, 13520083, 13520101
+- Premium Singer: 13520044, 13520083, 13520101
 
 ### BackEnd
 - Configuration: 13520044, 13520107
@@ -98,3 +99,5 @@ Aplikasi ini dibuat semacam clonning dari aplikasi Spotify, dimana penggunanya d
 - User list: 13520107
 - Search: 13520044
 - Pagination: 13520044
+- Premium Song: 13520044, 13520083, 13520101
+- Premium Singer: 13520044, 13520083, 13520101
