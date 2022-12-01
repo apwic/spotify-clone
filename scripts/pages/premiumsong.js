@@ -3,7 +3,7 @@ const getPremiumSong = () => {
     const userData = JSON.parse(data);
     const subsId = userData.dataUser.user_id;
 
-    getAPI(`http://localhost:8080/songs/subscription?subscriberId=${subsId}`, (data) => {
+    getAPI(`http://localhost:1356/songs/subscription?subscriberId=${subsId}`, (data) => {
       const jsonData = JSON.parse(data);
       console.log(jsonData);
       const songs = jsonData.songs;
@@ -30,7 +30,7 @@ const getPremiumSong = () => {
                       <img class="img-search" src="./assets/image/song.png" alt=""/>
                       <div class="detail-song">
                         <label class="song-title">${songs[i].judul}</label>
-                        <label>${penyanyi}</label>
+                        <label>${songs[i].penyanyi}</label>
                       </div>
                     </div>
                     <label class="label">${(audio_duration/60) >> 0}:${("0" + audio_duration%60).slice(-2)}</label>

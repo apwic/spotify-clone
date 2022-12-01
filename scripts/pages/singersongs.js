@@ -8,7 +8,7 @@ const getSingerSongs = () => {
     const userData = JSON.parse(data);
     const subsId = userData.dataUser.user_id;
 
-    getAPI(`http://localhost:8080/songs/singer?subscriberId=${subsId}&creatorId=${creatorId}`, (data) => {
+    getAPI(`http://localhost:1356/songs/singer?subscriberId=${subsId}&creatorId=${creatorId}`, (data) => {
       const jsonData = JSON.parse(data);
       const songs = jsonData.songs;
   

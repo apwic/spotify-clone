@@ -7,19 +7,27 @@ $subscriber_id = (int)$_POST['subscriber_id'];
 $creator_name = $_POST['creator_name'];
 $subscriber_name = $_POST['subscriber_name'];
 $status = $_POST['status'];
+// $creator_id = 4;
+// $subscriber_id = 6;
+// $creator_name = 'bibi';
+// $subscriber_name = 'baba';
+// $status = 'PENDING';
 
 // xml post structure
 $xml_post_string = 
-'<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"> 
-    <Body>
-        <AddSubscription xmlns="http://tempuri.org/">
-            <creator_id>'.$creator_id.'</creator_id>
-            <subscriber_id>'.$subscriber_id.'</subscriber_id>
-            <creator_name>'.$creator_name.'</creator_name>
-            <subscriber_name>'.$subscriber_name.'</subscriber_name>
+'<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+<Body>
+    <addSubscription xmlns="http://controllers/">
+        <!-- Optional -->
+        <arg0 xmlns="">
+            <creatorId>'.$creator_id.'</creatorId>
+            <creatorName>'.$creator_name.'</creatorName>
             <status>'.$status.'</status>
-        </AddSubscription>
-    </Body>
+            <subscriberId>'.$subscriber_id.'</subscriberId>
+            <subscriberName>'.$subscriber_name.'</subscriberName>
+        </arg0>
+    </addSubscription>
+</Body>
 </Envelope>';
 
 // send xml req through curl
@@ -35,6 +43,7 @@ if ($res == false) {
     $err = curl_error($curl);
     echo json_encode($err);
 } else {
+    echo json_encode($res);
     // sync subscription to app's db
     $query = $con->prepare('INSERT INTO `subscription` (`creator_id`, `subscriber_id`,
     `creator_name`,`subscriber_name`,`status`) VALUES (?, ?, ?, ?, ?)');

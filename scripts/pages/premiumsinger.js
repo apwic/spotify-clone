@@ -17,6 +17,7 @@ const addSubs = (e) => {
         addSubscription.append("status", "PENDING");
 
         postAPI(`/api/subs/addsubs.php`, (resp) => {}, addSubscription);
+        // window.location.reload();
     });
 
     // // masih hardcoded karena belom ditest (cuma bisa di laptop anca)
@@ -35,13 +36,13 @@ const addSubs = (e) => {
 }
 
 const premiumSingerLayout = () => {
-  getAPI(`http://localhost:8080/users`, (data) => {
+  getAPI(`http://localhost:1356/users`, (data) => {
     const jsonData = JSON.parse(data);
     const singers = jsonData.users;
     getAPI(`./api/subs/getusersubs.php`, (dataSubs) => {
         const jsonDataSubs = JSON.parse(dataSubs);
         const subs = jsonDataSubs.payload;
-        console.log(subs);
+        console.log(subs, singers);
 
         str = `<div class="page-title">Premium Singer
         </div>
