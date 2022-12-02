@@ -1,7 +1,7 @@
-const addSubs = (e) => {
-    console.log("add");
-    e.preventDefault();
-    const singer = JSON.parse(e.target.value);
+const addSubs = (event) => {
+    console.log(event.target.value);
+    event.preventDefault();
+    const singer = JSON.parse(event.target.value);
     console.log(singer);
 
     getAPI(`/api/authentication/userdata.php`, (data) => {
@@ -19,50 +19,58 @@ const addSubs = (e) => {
         postAPI(`/api/subs/addsubs.php`, (resp) => {}, addSubscription);
         // window.location.reload();
     });
+}
 
-    // // masih hardcoded karena belom ditest (cuma bisa di laptop anca)
-    // const newSubs = new FormData();
-    // newSubs.append("creator_id", 1);
-    // newSubs.append("subscriber_id", 2);
-    // newSubs.append("creator_name", "raisa");
-    // newSubs.append("subscriber_name", "yaya");
-    // newSubs.append("status", "PENDING");
-    
-    // postAPI(
-    //   `./api/subs/addsubs.php`, (resp) => {
-    //   }, newSubs
-    // );
-    // };
+const goToPremiumArtistSongs = (e) => {
+    e.preventDefault();
+    const singer = JSON.parse(e.target.value);
+    window.location.href = `${window.location.protocol}//${window.location.host}/premium-singer-song.html?id=${singer.user_id}&name=${singer.name}`;
+}
+
+const searchCreatorSubs = (subs, singerID) => {
+    if (subs === undefined || subs === null) {
+        return false;
+    }
+    for (let i = 0; i < subs.length; i++) {
+        if (subs[i].creator_id === singerID) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const getData = (data) => {
+    const jsonData = [{
+        "user_id": data.user_id,
+        "name": data.name,
+    }]
+    return jsonData;
 }
 
 const premiumSingerLayout = () => {
   getAPI(`http://localhost:1356/users`, (data) => {
     const jsonData = JSON.parse(data);
     const singers = jsonData.users;
-    getAPI(`./api/subs/getusersubs.php`, (dataSubs) => {
+    getAPI(`/api/subs/getusersubs.php`, (dataSubs) => {
         const jsonDataSubs = JSON.parse(dataSubs);
         const subs = jsonDataSubs.payload;
         console.log(subs, singers);
 
         str = `<div class="page-title">Premium Singer
         </div>
-        <div class="info">
-            <div class="info-column">Name</div>
-            <div class="info-column">Subscription</div>
-        </div>
         <div id="singers" class="singer-list-container">`;
 
         str += singers.map(singer =>
         `<div class="singer-list">
             <div class="singer">
-                <div class="text-info">${singer.name}</div>
+                <div class="singer-info">${singer.name}</div>
             </div>
-            <div class="singer">
+            <div>
                 ${
-                    subs?.creator_id === singer?.user_id ? 
-                        (subs?.status === "PENDING" ? `<div class="text-info">Requested</div>` 
-                        : (subs?.status === "ACCEPTED" ? `<div class="text-info">See Songs</div>` : `<div class="text-info">Rejected</div>`)) 
-                    : `<button class="text-info" value=${JSON.stringify(singer)} onclick="addSubs(event)">Subscribe</button>`
+                    searchCreatorSubs(subs, singer.user_id) ? 
+                        (subs?.status === "PENDING" ? `<div class="status-subs">Requested</div>` 
+                        : (subs?.status === "ACCEPTED" ? `<button class="status-subs" value=${JSON.stringify(singer)} onclick=""goToPremiumArtistSongs(event)>See Songs</button>` : `<div class="status-subs">Rejected</div>`)) 
+                    : `<button class="req-subs" value=${JSON.stringify(getData(singer))} onClick="addSubs(event)">Subscribe</button>`
                 }
             </div>
         </div>`

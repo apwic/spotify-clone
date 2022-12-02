@@ -20,16 +20,18 @@
   font-size: clamp(0.6rem, 1.3vw, 1.3rem);
 }
 
+.singer-list-container {
+  margin-top: 9%;
+}
+
 .singer-list {
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
 }
 
 .singer {
   display: flex;
-  border: 1px solid var(--light_green);
-  border-radius: 20px;
   padding-top: 1%;
   padding-bottom: 1%;
   padding-left: 1%;
@@ -38,7 +40,42 @@
   width: 45%;
 }
 
-.text-info {
+.singer-info {
   font-weight: 500;
-  font-size: clamp(0.6rem, 0.9vw, 1rem);
+  font-size: clamp(0.5rem, 2vw, 1.3rem);
+}
+
+.req-subs {
+  border: var(--light_green) 1px solid;
+  border-radius: 25px;
+  display: inline-block;
+  padding: 1% 5%;
+  font-size: clamp(0.5rem, 2vw, 1.1rem);
+  font-weight: 500;
+  background-color: var(--light_green);
+  color: var(--black);
+  width: 20vw;
+}
+
+.wait-subs {
+  border: var(--white) 1px solid;
+  border-radius: 25px;
+  display: inline-block;
+  padding: 1% 5%;
+  font-size: clamp(0.5rem, 2vw, 1.1rem);
+  font-weight: 500;
+  background-color: var(--white);
+  width: 20vw;
+}
+
+.reject-subs {
+  border: red 1px solid;
+  border-radius: 25px;
+  display: inline-block;
+  padding: 1% 5%;
+  font-size: clamp(0.5rem, 2vw, 1.1rem);
+  font-weight: 500;
+  background-color: red;
+  color: var(--black);
+  width: 20vw;
 }
