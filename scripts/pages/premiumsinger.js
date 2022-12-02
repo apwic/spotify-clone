@@ -51,7 +51,7 @@ const premiumSingerLayout = () => {
   getAPI(`http://localhost:1356/users`, (data) => {
     const jsonData = JSON.parse(data);
     const singers = jsonData.users;
-    getAPI(`/api/subs/getusersubs.php`, (dataSubs) => {
+    getAPI(`/api/subs/getusersubs.php`, async(dataSubs) => {
         const jsonDataSubs = JSON.parse(dataSubs);
         const subs = jsonDataSubs.payload;
         console.log(subs, singers);
@@ -79,8 +79,41 @@ const premiumSingerLayout = () => {
         str += `</div>`
 
         document.getElementById("page-container").innerHTML =  str;
+        await shortPolling();
+      });
     })
-  });
 };
+
+const revalidateSubscription = () => {
+    getAPI(`http://localhost:1356/users`, (data) => {
+        const jsonData = JSON.parse(data);
+        const singers = jsonData.users;
+        console.log(singers);
+        const userId = 1;
+        const payload = new FormData();
+        payload.append("singers", JSON.stringify(singers));
+        payload.append("subscriber_id", userId);
+        postAPI(
+            `./api/subs/checksingersubs.php`, async(resp) => {
+                const data = JSON.parse(resp);
+                console.log(data);
+                if (data.data) {
+                    window.location.reload();
+                } else {
+                    await shortPolling();
+                }
+            }, payload
+        )
+        })
+};
+    
+const shortPolling = () => {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            revalidateSubscription();
+            resolve();
+        }, 5000);
+    })
+}
 
 premiumSingerLayout();
