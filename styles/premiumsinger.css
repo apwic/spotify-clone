@@ -48,7 +48,8 @@
 .req-subs {
   border: var(--light_green) 1px solid;
   border-radius: 25px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   padding: 1% 5%;
   font-size: clamp(0.5rem, 2vw, 1.1rem);
   font-weight: 500;
@@ -60,18 +61,21 @@
 .wait-subs {
   border: var(--white) 1px solid;
   border-radius: 25px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   padding: 1% 5%;
   font-size: clamp(0.5rem, 2vw, 1.1rem);
   font-weight: 500;
   background-color: var(--white);
+  color: var(--black);
   width: 20vw;
 }
 
 .reject-subs {
   border: red 1px solid;
   border-radius: 25px;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   padding: 1% 5%;
   font-size: clamp(0.5rem, 2vw, 1.1rem);
   font-weight: 500;

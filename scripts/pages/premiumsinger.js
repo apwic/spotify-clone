@@ -10,21 +10,21 @@ const addSubs = (event) => {
         const userName = userData.dataUser.username;
 
         const addSubscription = new FormData();
-        addSubscription.append("creator_id", singer.user_id);
+        addSubscription.append("creator_id", singer?.user_id);
         addSubscription.append("subscriber_id", userId);
-        addSubscription.append("creator_name", singer.name);
+        addSubscription.append("creator_name", singer?.name);
         addSubscription.append("subscriber_name", userName);
         addSubscription.append("status", "PENDING");
 
         postAPI(`/api/subs/addsubs.php`, (resp) => {}, addSubscription);
-        // window.location.reload();
+        window.location.reload();
     });
 }
 
 const goToPremiumArtistSongs = (e) => {
     e.preventDefault();
     const singer = JSON.parse(e.target.value);
-    window.location.href = `${window.location.protocol}//${window.location.host}/premium-singer-song.html?id=${singer.user_id}&name=${singer.name}`;
+    window.location.href = `${window.location.protocol}//${window.location.host}/premium-singer-songs.html?id=${singer.user_id}&name="${singer.name}"`;
 }
 
 const searchCreatorSubs = (subs, singerID) => {
@@ -54,7 +54,7 @@ const premiumSingerLayout = () => {
     getAPI(`/api/subs/getusersubs.php`, async(dataSubs) => {
         const jsonDataSubs = JSON.parse(dataSubs);
         const subs = jsonDataSubs.payload;
-        console.log(subs, singers);
+        console.log(subs);
 
         str = `<div class="page-title">Premium Singer
         </div>
@@ -68,9 +68,9 @@ const premiumSingerLayout = () => {
             <div>
                 ${
                     searchCreatorSubs(subs, singer.user_id) ? 
-                        (subs?.status === "PENDING" ? `<div class="status-subs">Requested</div>` 
-                        : (subs?.status === "ACCEPTED" ? `<button class="status-subs" value=${JSON.stringify(singer)} onclick=""goToPremiumArtistSongs(event)>See Songs</button>` : `<div class="status-subs">Rejected</div>`)) 
-                    : `<button class="req-subs" value=${JSON.stringify(getData(singer))} onClick="addSubs(event)">Subscribe</button>`
+                        (subs[0].status === "PENDING" ? `<div class="wait-subs">Requested</div>` 
+                        : (subs[0].status === "ACCEPTED" ? `<button class="req-subs" value=${JSON.stringify(singer)} onClick="goToPremiumArtistSongs(event)">See Songs</button>` : `<div class="reject-subs">Rejected</div>`)) 
+                    : `<button class="req-subs" value=${JSON.stringify(singer)} onClick="addSubs(event)">Subscribe</button>`
                 }
             </div>
         </div>`
