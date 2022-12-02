@@ -69,9 +69,10 @@ Aplikasi ini dibuat semacam clonning dari aplikasi Spotify, dimana penggunanya d
 ![](screenshot/userlist.png)
 
 ### Premium Song
+![](screenshot/premiumsongs.png)
 
 ### Premium Singer
-
+![](screenshot/premiumsinger.png)
 ## Pembagian Tugas
 
 ### FrontEnd
