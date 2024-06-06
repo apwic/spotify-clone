@@ -4,7 +4,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: php:8.0-apache
+    image: php:latest-apache
     container_name: tubes-1
     depends_on:
       - db
@@ -15,8 +15,7 @@ services:
       - 8008:80
   db:
     container_name: tubes-1-db
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
+    image: mysql:latest
     restart: always
     environment:
       MYSQL_DATABASE: sepotipayi
