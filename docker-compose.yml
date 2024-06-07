@@ -26,7 +26,7 @@ services:
     command: [mysqld, --default-authentication-plugin=mysql_native_password]
     volumes:
       - ./sepotipayi.sql:/docker-entrypoint-initdb.d/sepotipayi.sql:ro
-      - db_data:/var/lib/mysql
+      - ./var/lib/mysql
     ports:
       - 3306:3306
 
@@ -40,7 +40,4 @@ services:
       UPLOAD_LIMIT: 64M
     ports:
       - 8888:80
-
-  volumes:
-    db_data:
 
