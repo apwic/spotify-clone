@@ -22,10 +22,11 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: user
       MYSQL_PASSWORD: user
+    command: [mysqld, --default-authentication-plugin=mysql_native_password]
     volumes:
       - ./sepotipayi.sql:/docker-entrypoint-initdb.d/sepotipayi.sql:ro
     ports:
-      - 6666:3306
+      - 3306:3306
   phpmyadmin:
     container_name: tubes-1-phpmyadmin
     image: phpmyadmin
