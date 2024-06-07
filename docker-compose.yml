@@ -4,7 +4,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile
-    image: php:latest-apache
+    image: php:8.0-apache
     container_name: tubes-1
     depends_on:
       - db
@@ -13,9 +13,12 @@ services:
       - ./php.ini:/usr/local/etc/php/conf.d/php.ini
     ports:
       - 8008:80
+    networks:
+      - sepotipayi
+
   db:
     container_name: tubes-1-db
-    image: mysql:latest
+    image: mysql:8.0
     restart: always
     environment:
       MYSQL_DATABASE: sepotipayi
@@ -25,8 +28,12 @@ services:
     command: [mysqld, --default-authentication-plugin=mysql_native_password]
     volumes:
       - ./sepotipayi.sql:/docker-entrypoint-initdb.d/sepotipayi.sql:ro
+      - db_data:/var/lib/mysql
     ports:
       - 3306:3306
+    networks:
+      - sepotipayi
+
   phpmyadmin:
     container_name: tubes-1-phpmyadmin
     image: phpmyadmin
@@ -37,4 +44,11 @@ services:
       UPLOAD_LIMIT: 64M
     ports:
       - 8888:80
+    networks:
+      jj- sepotipayi
 
+  volumes:
+    db_data:
+
+  networks:
+    sepotipayi:
