@@ -45,7 +45,7 @@ services:
     ports:
       - 8888:80
     networks:
-      jj- sepotipayi
+      - sepotipayi
 
   volumes:
     db_data:
