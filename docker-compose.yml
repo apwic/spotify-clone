@@ -26,7 +26,6 @@ services:
     command: [mysqld, --default-authentication-plugin=mysql_native_password]
     volumes:
       - ./sepotipayi.sql:/docker-entrypoint-initdb.d/sepotipayi.sql:ro
-      - ./var/lib/mysql
     ports:
       - 3306:3306
 
